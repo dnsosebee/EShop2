@@ -23,7 +23,9 @@ public class ControllerServlet extends HttpServlet {
 	  public void init() throws ServletException {
 
 	    // This will read mapping definitions and populate handlerHash
-	    handlerHash.put("/about.html", new UserServlets.AboutRequestHandler());
+	    handlerHash.put("/index.html", new UserServlets.IndexRequestHandler());
+	    handlerHash.put("/", new UserServlets.IndexRequestHandler());
+
 	  }
 
 	  

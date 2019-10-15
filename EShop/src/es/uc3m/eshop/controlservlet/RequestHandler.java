@@ -1,4 +1,4 @@
-package ControlServlets;
+package es.uc3m.eshop.controlservlet;
 /*
  * RequestHandler.java
  *

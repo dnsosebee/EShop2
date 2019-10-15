@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*, es.uc3m.eshop.model.*"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +66,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
 							<ul class="custom-menu">
 								<li><a href="#">USD ($)</a></li>
-								<li><a href="#">EUR (€)</a></li>
+								<li><a href="#">EUR (â¬)</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -189,15 +191,15 @@
 					<span class="category-header">Categories <i class="fa fa-list"></i></span>
 					<ul class="category-list">
 						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women’s Clothing <i class="fa fa-angle-right"></i></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Womenâs Clothing <i class="fa fa-angle-right"></i></a>
 							<div class="custom-menu">
 								<div class="row">
 									<div class="col-md-4">
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -208,8 +210,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -220,8 +222,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -242,7 +244,7 @@
 								</div>
 							</div>
 						</li>
-						<li><a href="#">Men’s Clothing</a></li>
+						<li><a href="#">Menâs Clothing</a></li>
 						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Phones & Accessories <i class="fa fa-angle-right"></i></a>
 							<div class="custom-menu">
 								<div class="row">
@@ -250,8 +252,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -260,8 +262,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -272,8 +274,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -282,8 +284,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -310,8 +312,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -320,8 +322,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -332,8 +334,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -342,8 +344,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -354,8 +356,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -364,8 +366,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -393,8 +395,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -405,8 +407,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -417,8 +419,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -447,7 +449,7 @@
 											<a class="banner banner-1" href="#">
 												<img src="./img/banner06.jpg" alt="">
 												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Women’s</h3>
+													<h3 class="white-color text-uppercase">Womenâs</h3>
 												</div>
 											</a>
 											<hr>
@@ -455,8 +457,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -467,7 +469,7 @@
 											<a class="banner banner-1" href="#">
 												<img src="./img/banner07.jpg" alt="">
 												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Men’s</h3>
+													<h3 class="white-color text-uppercase">Menâs</h3>
 												</div>
 											</a>
 										</div>
@@ -475,8 +477,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -495,8 +497,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -515,8 +517,8 @@
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Womenâs Clothing</a></li>
+											<li><a href="#">Menâs Clothing</a></li>
 											<li><a href="#">Phones & Accessories</a></li>
 											<li><a href="#">Jewelry & Watches</a></li>
 											<li><a href="#">Bags & Shoes</a></li>
@@ -548,7 +550,7 @@
 		<div class="container">
 			<ul class="breadcrumb">
 				<li><a href="#">Home</a></li>
-				<li class="active">Products</li>
+				<li class="active">Checkout</li>
 			</ul>
 		</div>
 	</div>
@@ -560,503 +562,190 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-				<!-- ASIDE -->
-				<div id="aside" class="col-md-3">
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Shop by:</h3>
-						<ul class="filter-list">
-							<li><span class="text-uppercase">color:</span></li>
-							<li><a href="#" style="color:#FFF; background-color:#8A2454;">Camelot</a></li>
-							<li><a href="#" style="color:#FFF; background-color:#475984;">East Bay</a></li>
-							<li><a href="#" style="color:#FFF; background-color:#BF6989;">Tapestry</a></li>
-							<li><a href="#" style="color:#FFF; background-color:#9A54D8;">Medium Purple</a></li>
-						</ul>
-
-						<ul class="filter-list">
-							<li><span class="text-uppercase">Size:</span></li>
-							<li><a href="#">X</a></li>
-							<li><a href="#">XL</a></li>
-						</ul>
-
-						<ul class="filter-list">
-							<li><span class="text-uppercase">Price:</span></li>
-							<li><a href="#">MIN: $20.00</a></li>
-							<li><a href="#">MAX: $120.00</a></li>
-						</ul>
-
-						<ul class="filter-list">
-							<li><span class="text-uppercase">Gender:</span></li>
-							<li><a href="#">Men</a></li>
-						</ul>
-
-						<button class="primary-btn">Clear All</button>
-					</div>
-					<!-- /aside widget -->
-
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Filter by Price</h3>
-						<div id="price-slider"></div>
-					</div>
-					<!-- aside widget -->
-
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Filter By Color:</h3>
-						<ul class="color-option">
-							<li><a href="#" style="background-color:#475984;"></a></li>
-							<li><a href="#" style="background-color:#8A2454;"></a></li>
-							<li class="active"><a href="#" style="background-color:#BF6989;"></a></li>
-							<li><a href="#" style="background-color:#9A54D8;"></a></li>
-							<li><a href="#" style="background-color:#675F52;"></a></li>
-							<li><a href="#" style="background-color:#050505;"></a></li>
-							<li><a href="#" style="background-color:#D5B47B;"></a></li>
-						</ul>
-					</div>
-					<!-- /aside widget -->
-
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Filter By Size:</h3>
-						<ul class="size-option">
-							<li class="active"><a href="#">S</a></li>
-							<li class="active"><a href="#">XL</a></li>
-							<li><a href="#">SL</a></li>
-						</ul>
-					</div>
-					<!-- /aside widget -->
-
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Filter by Brand</h3>
-						<ul class="list-links">
-							<li><a href="#">Nike</a></li>
-							<li><a href="#">Adidas</a></li>
-							<li><a href="#">Polo</a></li>
-							<li><a href="#">Lacost</a></li>
-						</ul>
-					</div>
-					<!-- /aside widget -->
-
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Filter by Gender</h3>
-						<ul class="list-links">
-							<li class="active"><a href="#">Men</a></li>
-							<li><a href="#">Women</a></li>
-						</ul>
-					</div>
-					<!-- /aside widget -->
-
-					<!-- aside widget -->
-					<div class="aside">
-						<h3 class="aside-title">Top Rated Product</h3>
-						<!-- widget product -->
-						<div class="product product-widget">
-							<div class="product-thumb">
-								<img src="./img/thumb-product01.jpg" alt="">
+				<form id="checkout-form" class="clearfix">
+					<div class="col-md-6">
+						<div class="billing-details">
+							<p>Already a customer ? <a href="#">Login</a></p>
+							<div class="section-title">
+								<h3 class="title">Billing Details</h3>
 							</div>
-							<div class="product-body">
-								<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-								<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o empty"></i>
+							<div class="form-group">
+								<input class="input" type="text" name="first-name" placeholder="First Name">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="last-name" placeholder="Last Name">
+							</div>
+							<div class="form-group">
+								<input class="input" type="email" name="email" placeholder="Email">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="address" placeholder="Address">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="city" placeholder="City">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="country" placeholder="Country">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+							</div>
+							<div class="form-group">
+								<input class="input" type="tel" name="tel" placeholder="Telephone">
+							</div>
+							<div class="form-group">
+								<div class="input-checkbox">
+									<input type="checkbox" id="register">
+									<label class="font-weak" for="register">Create Account?</label>
+									<div class="caption">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+											<p>
+												<input class="input" type="password" name="password" placeholder="Enter Your Password">
+									</div>
 								</div>
 							</div>
 						</div>
-						<!-- /widget product -->
+					</div>
 
-						<!-- widget product -->
-						<div class="product product-widget">
-							<div class="product-thumb">
-								<img src="./img/thumb-product01.jpg" alt="">
+					<div class="col-md-6">
+						<div class="shiping-methods">
+							<div class="section-title">
+								<h4 class="title">Shiping Methods</h4>
 							</div>
-							<div class="product-body">
-								<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-								<h3 class="product-price">$32.50</h3>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o empty"></i>
+							<div class="input-checkbox">
+								<input type="radio" name="shipping" id="shipping-1" checked>
+								<label for="shipping-1">Free Shiping -  $0.00</label>
+								<div class="caption">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+										<p>
+								</div>
+							</div>
+							<div class="input-checkbox">
+								<input type="radio" name="shipping" id="shipping-2">
+								<label for="shipping-2">Standard - $4.00</label>
+								<div class="caption">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+										<p>
 								</div>
 							</div>
 						</div>
-						<!-- /widget product -->
-					</div>
-					<!-- /aside widget -->
-				</div>
-				<!-- /ASIDE -->
 
-				<!-- MAIN -->
-				<div id="main" class="col-md-9">
-					<!-- store top filter -->
-					<div class="store-filter clearfix">
-						<div class="pull-left">
-							<div class="row-filter">
-								<a href="#"><i class="fa fa-th-large"></i></a>
-								<a href="#" class="active"><i class="fa fa-bars"></i></a>
+						<div class="payments-methods">
+							<div class="section-title">
+								<h4 class="title">Payments Methods</h4>
 							</div>
-							<div class="sort-filter">
-								<span class="text-uppercase">Sort By:</span>
-								<select class="input">
-										<option value="0">Position</option>
-										<option value="0">Price</option>
-										<option value="0">Rating</option>
-									</select>
-								<a href="#" class="main-btn icon-btn"><i class="fa fa-arrow-down"></i></a>
+							<div class="input-checkbox">
+								<input type="radio" name="payments" id="payments-1" checked>
+								<label for="payments-1">Direct Bank Transfer</label>
+								<div class="caption">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+										<p>
+								</div>
 							</div>
-						</div>
-						<div class="pull-right">
-							<div class="page-filter">
-								<span class="text-uppercase">Show:</span>
-								<select class="input">
-										<option value="0">10</option>
-										<option value="1">20</option>
-										<option value="2">30</option>
-									</select>
+							<div class="input-checkbox">
+								<input type="radio" name="payments" id="payments-2">
+								<label for="payments-2">Cheque Payment</label>
+								<div class="caption">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+										<p>
+								</div>
 							</div>
-							<ul class="store-pages">
-								<li><span class="text-uppercase">Page:</span></li>
-								<li class="active">1</li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-							</ul>
+							<div class="input-checkbox">
+								<input type="radio" name="payments" id="payments-3">
+								<label for="payments-3">Paypal System</label>
+								<div class="caption">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+										<p>
+								</div>
+							</div>
 						</div>
 					</div>
-					<!-- /store top filter -->
 
-					<!-- STORE -->
-					<div id="store">
-						<!-- row -->
-						<div class="row">
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span>New</span>
-											<span class="sale">-20%</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product01.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
+					<div class="col-md-12">
+						<div class="order-summary clearfix">
+							<div class="section-title">
+								<h3 class="title">Order Review</h3>
 							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product02.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50</h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
+							<table class="shopping-cart-table table">
+								<thead>
+									<tr>
+										<th>Product</th>
+										<th></th>
+										<th class="text-center">Price</th>
+										<th class="text-center">Quantity</th>
+										<th class="text-center">Total</th>
+										<th class="text-right"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
+										<td class="details">
+											<a href="#">Product Name Goes Here</a>
+											<ul>
+												<li><span>Size: XL</span></li>
+												<li><span>Color: Camelot</span></li>
+											</ul>
+										</td>
+										<td class="price text-center"><strong>$32.50</strong><br><del class="font-weak"><small>$40.00</small></del></td>
+										<td class="qty text-center"><input class="input" type="number" value="1"></td>
+										<td class="total text-center"><strong class="primary-color">$32.50</strong></td>
+										<td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
+									</tr>
+									<tr>
+										<td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
+										<td class="details">
+											<a href="#">Product Name Goes Here</a>
+											<ul>
+												<li><span>Size: XL</span></li>
+												<li><span>Color: Camelot</span></li>
+											</ul>
+										</td>
+										<td class="price text-center"><strong>$32.50</strong></td>
+										<td class="qty text-center"><input class="input" type="number" value="1"></td>
+										<td class="total text-center"><strong class="primary-color">$32.50</strong></td>
+										<td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
+									</tr>
+									<tr>
+										<td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
+										<td class="details">
+											<a href="#">Product Name Goes Here</a>
+											<ul>
+												<li><span>Size: XL</span></li>
+												<li><span>Color: Camelot</span></li>
+											</ul>
+										</td>
+										<td class="price text-center"><strong>$32.50</strong></td>
+										<td class="qty text-center"><input class="input" type="number" value="1"></td>
+										<td class="total text-center"><strong class="primary-color">$32.50</strong></td>
+										<td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th class="empty" colspan="3"></th>
+										<th>SUBTOTAL</th>
+										<th colspan="2" class="sub-total">$97.50</th>
+									</tr>
+									<tr>
+										<th class="empty" colspan="3"></th>
+										<th>SHIPING</th>
+										<td colspan="2">Free Shipping</td>
+									</tr>
+									<tr>
+										<th class="empty" colspan="3"></th>
+										<th>TOTAL</th>
+										<th colspan="2" class="total">$97.50</th>
+									</tr>
+								</tfoot>
+							</table>
+							<div class="pull-right">
+								<button class="primary-btn">Place Order</button>
 							</div>
-							<!-- /Product Single -->
-
-							<div class="clearfix visible-sm visible-xs"></div>
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span>New</span>
-											<span class="sale">-20%</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product03.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<div class="clearfix visible-md visible-lg"></div>
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span>New</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product04.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50</h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<div class="clearfix visible-sm visible-xs"></div>
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span>New</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product05.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50</h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span>New</span>
-											<span class="sale">-20%</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product06.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<div class="clearfix visible-md visible-lg visible-sm visible-xs"></div>
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span>New</span>
-											<span class="sale">-20%</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product07.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product08.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50</h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<div class="clearfix visible-sm visible-xs"></div>
-
-							<!-- Product Single -->
-							<div class="col-md-4 col-sm-6 col-xs-6">
-								<div class="product product-single">
-									<div class="product-thumb">
-										<div class="product-label">
-											<span class="sale">-20%</span>
-										</div>
-										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-										<img src="./img/product01.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>
-										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-										<div class="product-btns">
-											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
 						</div>
-						<!-- /row -->
+
 					</div>
-					<!-- /STORE -->
-
-					<!-- store bottom filter -->
-					<div class="store-filter clearfix">
-						<div class="pull-left">
-							<div class="row-filter">
-								<a href="#"><i class="fa fa-th-large"></i></a>
-								<a href="#" class="active"><i class="fa fa-bars"></i></a>
-							</div>
-							<div class="sort-filter">
-								<span class="text-uppercase">Sort By:</span>
-								<select class="input">
-										<option value="0">Position</option>
-										<option value="0">Price</option>
-										<option value="0">Rating</option>
-									</select>
-								<a href="#" class="main-btn icon-btn"><i class="fa fa-arrow-down"></i></a>
-							</div>
-						</div>
-						<div class="pull-right">
-							<div class="page-filter">
-								<span class="text-uppercase">Show:</span>
-								<select class="input">
-										<option value="0">10</option>
-										<option value="1">20</option>
-										<option value="2">30</option>
-									</select>
-							</div>
-							<ul class="store-pages">
-								<li><span class="text-uppercase">Page:</span></li>
-								<li class="active">1</li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- /store bottom filter -->
-				</div>
-				<!-- /MAIN -->
+				</form>
 			</div>
 			<!-- /row -->
 		</div>

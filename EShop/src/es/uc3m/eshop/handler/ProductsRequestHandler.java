@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IndexRequestHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
+public class ProductsRequestHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
@@ -19,7 +19,7 @@ public class IndexRequestHandler implements es.uc3m.eshop.controlservlet.Request
 		List<Product> list = pm.findAll();
 		request.setAttribute("products", list);
 		
-		return "index.jsp";
+		return "products.jsp";
 	}
 
 }

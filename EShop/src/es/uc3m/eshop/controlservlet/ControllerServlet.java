@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.uc3m.eshop.handler.IndexRequestHandler;
+import es.uc3m.eshop.handler.*;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -28,9 +28,10 @@ public class ControllerServlet extends HttpServlet {
 	  public void init() throws ServletException {
 
 	    // This will read mapping definitions and populate handlerHash
-	    handlerHash.put("/index.html", new IndexRequestHandler());
-	    handlerHash.put("/", new IndexRequestHandler());
-
+		  handlerHash.put("/product-page.html", new ProductPageRequestHandler());
+		  handlerHash.put("/products.html", new ProductsRequestHandler());
+		  handlerHash.put("/index.html", new IndexRequestHandler());
+		  handlerHash.put("/signup.html", new SignUpRequestHandler());
 	  }
 
 	  
@@ -56,4 +57,9 @@ public class ControllerServlet extends HttpServlet {
 		  }
 
 	  }
+	  
+	  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		  doGet(request,response);
+	  }
+	  
 }

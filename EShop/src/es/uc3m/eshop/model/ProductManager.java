@@ -32,6 +32,11 @@ public class ProductManager {
 		et = em.getTransaction();
 	}
 	
+	public Product findById(String id) {
+		Product p = em.find(Product.class, Integer.parseInt(id));
+		return p;
+	}
+	
 	public Product insert(Product p) {
 		
 		et.begin();

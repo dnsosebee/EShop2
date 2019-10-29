@@ -7,7 +7,7 @@
 
 <jsp:include page="navigation.jsp"/>
 
-<jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
+<jsp:useBean id="products" scope="request" class="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
 
 	<!-- section -->
 	<div class="section">

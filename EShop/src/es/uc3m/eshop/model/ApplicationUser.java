@@ -10,7 +10,10 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="ApplicationUser.findAll", query="SELECT a FROM ApplicationUser a")
+@NamedQueries(value= {
+@NamedQuery(name="ApplicationUser.findAll", query="SELECT a FROM ApplicationUser a"),
+@NamedQuery(name="ApplicationUser.login", query="SELECT a FROM ApplicationUser a  where a.email = :email and a.password = :password")
+})
 public class ApplicationUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 

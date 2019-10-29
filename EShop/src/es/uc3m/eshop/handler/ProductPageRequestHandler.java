@@ -14,15 +14,15 @@ public class ProductPageRequestHandler implements es.uc3m.eshop.controlservlet.R
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List<Product> list = new ArrayList<Product>();
-		/*list.add(new Product(1,"Television","great television",300.0f,"image1.png"));
-		list.add(new Product(1,"Smart Phone","buy it",800.0f,"image1.png"));
-		list.add(new Product(1,"Keyboard","also a television",30.0f,"image1.png"));
-		list.add(new Product(1,"Computer","yeah, buy this computer",600.0f,"image1.png"));
-		list.add(new Product(1,"Pen","The greatest pen",3.0f,"image1.png"));
-		*/
-		request.setAttribute("products", list);
-		
+		ProductManager pm = new ProductManager();
+		if (request.getParameter("id") == null) {
+			return "error.jsp";
+		}
+		Product p = pm.findById(request.getParameter(("id")));
+		if (p == null) {
+			return "error.jsp";
+		}
+		request.setAttribute("product", p);
 		return "product-page.jsp";
 	}
 }

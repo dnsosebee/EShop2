@@ -34,6 +34,7 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/signup.html", new SignUpRequestHandler());
 		  handlerHash.put("/login.html", new LoginRequestHandler());
 		  handlerHash.put("/logout.html", new LogoutRequestHandler());
+		  handlerHash.put("/checkout.html", new CheckoutRequestHandler());
 	  }
 
 	  

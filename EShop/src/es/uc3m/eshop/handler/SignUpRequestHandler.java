@@ -36,5 +36,4 @@ public class SignUpRequestHandler implements es.uc3m.eshop.controlservlet.Reques
 			return "signup.jsp";
 		}
 	}
-
 }

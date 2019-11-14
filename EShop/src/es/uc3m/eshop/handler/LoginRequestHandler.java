@@ -1,5 +1,6 @@
 package es.uc3m.eshop.handler;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import es.uc3m.eshop.model.*;
 import javax.servlet.ServletException;
@@ -12,7 +13,11 @@ public class LoginRequestHandler implements es.uc3m.eshop.controlservlet.Request
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		System.out.println("Login Request Here");
 		if(request.getParameter("email")!=null) {
+			
 			
 			
 			ApplicationUserManager aum = new ApplicationUserManager();

@@ -12,11 +12,6 @@ import javax.persistence.Query;
 
 
 public class ApplicationUserManager {
-
-	
-	
-
-	
 	
 	private EntityManager em;
 	private EntityTransaction et;

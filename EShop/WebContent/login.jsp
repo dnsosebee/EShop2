@@ -12,7 +12,7 @@
 <label>Password: <input type="password" required name="password"></label>
 <br>
 
-<input type="submit" value="Sign up">
+<input type="submit" value="Login">
 
 </form>
 

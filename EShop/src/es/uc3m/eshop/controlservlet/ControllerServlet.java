@@ -26,6 +26,7 @@ public class ControllerServlet extends HttpServlet {
 
 	  // Initialize mappings: not implemented here
 	  public void init() throws ServletException {
+		 
 
 	    // This will read mapping definitions and populate handlerHash
 		  handlerHash.put("/product-page.html", new ProductPageRequestHandler());
@@ -34,6 +35,8 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/signup.html", new SignUpRequestHandler());
 		  handlerHash.put("/login.html", new LoginRequestHandler());
 		  handlerHash.put("/logout.html", new LogoutRequestHandler());
+		  handlerHash.put("/userProfile.html", new UserProfileRequestHandler());
+		  handlerHash.put("/deleteUser.html", new DeleteUserRequestHandler());
 		  handlerHash.put("/checkout.html", new CheckoutRequestHandler());
 	  }
 
@@ -43,8 +46,9 @@ public class ControllerServlet extends HttpServlet {
 		  String sPath = request.getServletPath();
 		  
 		  // Complete. Retrieve from the HashMap the instance of the class which implements the logic of the requested url
+		    
 		  RequestHandler rh = handlerHash.get(sPath);
-		  
+		  		  
 		  if (rh == null) {
 			  //request.getRequestDispatcher("error.html").forward(request, response);
 			  response.sendError(404);

@@ -80,6 +80,15 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
+INSERT INTO ctw.applicationUser
+VALUES('tester1@gmail.com', '12345', 'TesterFirst1', 'TesterFirst2', '16 Tester ave.', 0);
+INSERT INTO ctw.applicationUser
+VALUES('tester2@gmail.com', '12345', 'TesterFirst2', 'TesterFirst2', '18 Tester St.', 0);
+INSERT INTO ctw.applicationUSer
+VALUES('admin@gmail.com', '12345', 'admin', 'adminMan', '18 sudo st.', 2);
+INSERT INTO ctw.applicationUser
+VALUES('seller@gmail.com', '12345', 'seller', 'Jim', '16 seller st.', 1);
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

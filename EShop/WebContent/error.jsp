@@ -2,5 +2,5 @@
     pageEncoding="UTF-8" import="java.util.*, es.uc3m.eshop.model.*"%>
 
 <jsp:include page="header.jsp"/>
-Opps!!! Sorry!!!
+Opps!!! Sorry!!! 404
 <jsp:include page="footer.jsp"/>

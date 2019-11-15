@@ -26,5 +26,11 @@
 			</div>
 		</div>
 	</div>
+	<% if (request.getParameter("wishlist") != null) { %>
+		<form action="removeFromWishlist.html" method="POST">
+	    	<input type="hidden" name="id" value="<%= Integer.parseInt(request.getParameter("id")) %>" />
+	    	<input type="submit" value = "remove item with id <%= Integer.parseInt(request.getParameter("id")) %>" style="color:red;" />
+	    </form>
+	<% } %>
 </div>
 <!-- /Product Single -->

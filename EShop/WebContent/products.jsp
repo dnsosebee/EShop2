@@ -4,7 +4,7 @@
 <jsp:include page="header.jsp"/>
 
 <jsp:include page="navigation.jsp"/>
-
+<h1>All Products</h1>
 	<!-- BREADCRUMB -->
 	<div id="breadcrumb">
 		<div class="container">

@@ -93,4 +93,16 @@ public class ApplicationUserManager {
 		return true;
 	}
 	
+	public void addToWishlist(ApplicationUser au, int id) {
+
+		et.begin();
+		ApplicationUser user = findByEmail(au.getEmail());
+		Product p = em.find(Product.class, id);
+		user.getProducts().add(p);
+		em.merge(user);
+		
+		et.commit();
+	}
+	
+	
 }

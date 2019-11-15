@@ -33,17 +33,11 @@ public class InboxRequestHandler implements es.uc3m.eshop.controlservlet.Request
 		}
 		au = (ApplicationUser) session.getAttribute("user");
 		String query ="";
-		StringBuilder selector = new StringBuilder();
-		selector.append("(");
 		if (au.getRole() == 0) {
-			selector.append("allUsers = TRUE) OR (");
 			query = "(allUsers IS NOT NULL AND allUsers = TRUE) OR (recipientEmail = '"+ au.getEmail()+"')";
 		} else if (au.getRole() == 1) {
-			selector.append("allSellers = TRUE) OR (");
 			query = "(allSellers IS NOT NULL AND allSellers = TRUE) OR (recipientEmail = '"+ au.getEmail() +"')";
 		}
-		selector.append(au.getEmail());
-		selector.append(" = TRUE)");
 		
 		Context context;
 		try {

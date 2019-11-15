@@ -28,7 +28,6 @@ public class WishlistRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 		ApplicationUserManager aum=new ApplicationUserManager();
 		au = aum.findByEmail(auxiliar.getEmail());
 	
-		
 		List<Product> list = au.getProducts();
 		request.setAttribute("products", list);
 		

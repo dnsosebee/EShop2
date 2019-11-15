@@ -43,7 +43,8 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/inbox.html", new InboxRequestHandler());
 		  handlerHash.put("/messagingTester.html", new MessagingTesterRequestHandler());
 		  handlerHash.put("/wishlist.html", new WishlistRequestHandler());
-		  
+		  handlerHash.put("/removeFromWishlist.html", new RemoveFromWishlistRequestHandler());
+		  handlerHash.put("/addToWishlist.html", new AddToWishlistRequestHandler());
 	  }
 
 	  

@@ -26,6 +26,7 @@
 					<jsp:include page="product.jsp">
 				        <jsp:param name="price" value="<%= products.get(i).getPrice() %>" />
 				        <jsp:param name="name" value="<%= products.get(i).getName() %>"/>
+				        <jsp:param name="id" value="<%= products.get(i).getIdProduct() %>"/>
 				    </jsp:include>
 				<% } %>
 			</div>

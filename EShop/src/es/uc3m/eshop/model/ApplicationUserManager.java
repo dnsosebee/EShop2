@@ -95,10 +95,24 @@ public class ApplicationUserManager {
 	
 	public void addToWishlist(ApplicationUser au, int id) {
 
+		
+		ApplicationUser user = findByEmail(au.getEmail());
+		Product p = em.find(Product.class, id);
+		List<Product> products = user.getProducts();
+		if (!products.contains(p)) {
+			et.begin();
+			user.getProducts().add(p);
+			em.merge(user);
+			et.commit();
+		}
+	}
+	
+	public void removeFromWishlist(ApplicationUser au, int id) {
+
 		et.begin();
 		ApplicationUser user = findByEmail(au.getEmail());
 		Product p = em.find(Product.class, id);
-		user.getProducts().add(p);
+		user.getProducts().remove(p);
 		em.merge(user);
 		
 		et.commit();

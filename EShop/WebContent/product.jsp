@@ -20,17 +20,19 @@
 			</div>
 			<h2 class="product-name"><a href="#"><%= request.getParameter("name") %></a></h2>
 			<div class="product-btns">
-				<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-				<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
 				<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+				<form action="addToWishlist.html" method="POST">
+			    	<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+			    	<input type="submit" value = "Add To Wishlist" style="color:green;margin-top:10px;" />
+			    </form>
+				<% if (request.getParameter("wishlist") != null) { %>
+					<form action="removeFromWishlist.html" method="POST">
+				    	<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+				    	<input type="submit" value = "Remove From Wishlist" style="color:red;margin-top:10px;" />
+				    </form>
+				<% } %>
 			</div>
 		</div>
 	</div>
-	<% if (request.getParameter("wishlist") != null) { %>
-		<form action="removeFromWishlist.html" method="POST">
-	    	<input type="hidden" name="id" value="<%= Integer.parseInt(request.getParameter("id")) %>" />
-	    	<input type="submit" value = "remove item with id <%= Integer.parseInt(request.getParameter("id")) %>" style="color:red;" />
-	    </form>
-	<% } %>
 </div>
 <!-- /Product Single -->

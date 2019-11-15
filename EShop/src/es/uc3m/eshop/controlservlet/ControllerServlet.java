@@ -78,13 +78,6 @@ public class ControllerServlet extends HttpServlet {
 	  
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  doGet(request,response);
-		  
-		  
-		  //Post from admin panel to edit specific user
-		  System.out.println("POST RECEIVED");
-		 
-		  System.out.println("To edit user email");
-		  System.out.println(request.getParameter("editUserEmail"));
 	  }
 	  
 	  

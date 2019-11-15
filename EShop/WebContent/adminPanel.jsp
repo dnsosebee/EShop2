@@ -6,5 +6,42 @@
 <jsp:include page="header.jsp" />
 
 <h3>Admin Panel</h3>
+<%-- 
+<jsp:useBean id="users" scope="request"
+	class="java.util.ArrayList<es.uc3m.eshop.model.ApplicationUser>" />
+ --%>
+
+
+<table>
+	<tr>
+		<th>Email</th>
+		<th>Address</th>
+		<th>Name</th>
+		<th>Surname</th>
+		<th>Edit User</th>
+	</tr>
+	
+	<% List<ApplicationUser> allUsers = (List<ApplicationUser>) request.getAttribute("allUsers"); %>
+	<% for(ApplicationUser user: allUsers) {%>
+	<tr>
+		<td><%=user.getEmail()%></td>
+		<td><%=user.getAddress()%></td>
+		<td><%=user.getName()%></td>
+		<td><%=user.getSurname()%></td>
+		<td>
+		<form method = "post" action = "editUser.html">
+		<input type = "submit" value = "Edit User"/>
+		<input type="hidden" name="editUserEmail" value="<%=user.getEmail()%>" />
+			
+		</form>
+		</td>
+	</tr>
+	
+	
+	<%} %>
+</table>
+
+
+
 
 <jsp:include page="footer.jsp" />

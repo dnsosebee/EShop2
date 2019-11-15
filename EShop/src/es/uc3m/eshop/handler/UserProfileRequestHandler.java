@@ -31,17 +31,20 @@ public class UserProfileRequestHandler implements es.uc3m.eshop.controlservlet.R
 			System.out.println("Session attribute user returned null");
 			return "login.html";
 		}
+		
+		au = (ApplicationUser) session.getAttribute("user");
+		
+		if (au.getRole() == 0)
 		{
-			au = (ApplicationUser) session.getAttribute("user");
 			return "userProfile.jsp";
+		}
+		else if (au.getRole() == 2)
+		{
+			return "adminPanel.html";
 		}
 		
 		
-		
-		
-		
-
-		
+		return "error.jsp";	
 	}
 
 }

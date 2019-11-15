@@ -16,8 +16,14 @@ public class AdminPanelHandler implements es.uc3m.eshop.controlservlet.RequestHa
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		ApplicationUserManager aum = new ApplicationUserManager();
 
-		System.out.println("ADMIN PANEL");
+		
+	
+		List<ApplicationUser> allUsers = aum.findAll();
+		request.setAttribute("allUsers", allUsers);
 
 		
 		

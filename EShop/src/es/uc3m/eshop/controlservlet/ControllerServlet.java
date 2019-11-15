@@ -39,6 +39,10 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/deleteUser.html", new DeleteUserRequestHandler());
 		  handlerHash.put("/checkout.html", new CheckoutRequestHandler());
 		  handlerHash.put("/send.html", new SendRequestHandler());
+		  handlerHash.put("/editUser.html", new EditUserRequestHandler());
+		  handlerHash.put("/adminPanel.html", new AdminPanelHandler());
+//		  handlerHash.put("/consumer.html", new ConsumeRequestHandler());
+//		  handlerHash.put("/browser.html", new BrowserRequestHandler());
 		  handlerHash.put("/message.html", new MessageRequestHandler());
 		  handlerHash.put("/inbox.html", new InboxRequestHandler());
 		  handlerHash.put("/messagingTester.html", new MessagingTesterRequestHandler());
@@ -74,6 +78,15 @@ public class ControllerServlet extends HttpServlet {
 	  
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  doGet(request,response);
+		  
+		  
+		  //Post from admin panel to edit specific user
+		  System.out.println("POST RECEIVED");
+		 
+		  System.out.println("To edit user email");
+		  System.out.println(request.getParameter("editUserEmail"));
 	  }
+	  
+	  
 	  
 }

@@ -32,7 +32,7 @@
 
 
 
-<a href="">Edit Information</a>
+<a href="editUser.html">Edit Information</a>
 <a href="deleteUser.html">Delete Account</a>
 
 <jsp:include page="footer.jsp" />

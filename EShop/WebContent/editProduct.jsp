@@ -30,7 +30,7 @@
 		<td><input type = "text" name = "newProductPrice" value = "<%=editProduct.getPrice() %>"></input></td>
 		<td><input type = "number" name = "newProductStock" value = "<%=editProduct.getStock() %>"></input></td>
 		<td><img src="<%=editProduct.getImageString()%>" width=75px height =75px></td>
-		<input  type = "submit" value = "Submit Changes">
+		<td><input  type = "submit" value = "Submit Changes"></td>
 	</form>
 	</td>
 

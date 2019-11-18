@@ -23,7 +23,6 @@ public class UserProfileRequestHandler implements es.uc3m.eshop.controlservlet.R
 
 		HttpSession session = request.getSession();
 		
-		ApplicationUser au;
 		
 		//Check if there is a user in the session and direct to the login page if not
 		if (session.getAttribute("user") == null) {
@@ -32,17 +31,23 @@ public class UserProfileRequestHandler implements es.uc3m.eshop.controlservlet.R
 			return "login.html";
 		}
 		
-		au = (ApplicationUser) session.getAttribute("user");
+		ApplicationUser au = (ApplicationUser) session.getAttribute("user");
 		
+
 		if (au.getRole() == 0)
 		{
 			return "userProfile.jsp";
+		}
+		else if (au.getRole() == 1)
+		{
+			return "sellerPanel.jsp";
 		}
 		else if (au.getRole() == 2)
 		{
 			return "adminPanel.html";
 		}
 		
+	
 		
 		return "error.jsp";	
 	}

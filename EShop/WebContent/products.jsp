@@ -39,6 +39,7 @@
 								        <jsp:param name="price" value="<%= products.get(i).getPrice() %>" />
 								        <jsp:param name="name" value="<%= products.get(i).getName() %>"/>
 								        <jsp:param name="id" value="<%= products.get(i).getIdProduct() %>"/>
+								        <jsp:param name="image" value = "<%= products.get(i).getImageString() %>" />
 								    </jsp:include>
 								<% } %>
 							</div>

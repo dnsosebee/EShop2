@@ -2,6 +2,10 @@ package es.uc3m.eshop.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
+
 import java.util.List;
 
 
@@ -22,13 +26,15 @@ public class Product implements Serializable {
 	private String description;
 
 	@Lob
-	private byte[] image;
-
+	private byte[] product_image;
+	
 	private String name;
 
 	private float price;
 
 	private int stock;
+	
+	private String seller;
 
 	//bi-directional many-to-many association to ApplicationUser
 	@ManyToMany
@@ -63,11 +69,19 @@ public class Product implements Serializable {
 	}
 
 	public byte[] getImage() {
-		return this.image;
+		return this.product_image;
 	}
 
 	public void setImage(byte[] image) {
-		this.image = image;
+		this.product_image = image;
+	}
+	
+	public String getImageString() {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("data:image/png;base64,");
+		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(this.getImage(), false)));
+		return sb.toString();	
 	}
 
 	public String getName() {
@@ -101,5 +115,12 @@ public class Product implements Serializable {
 	public void setApplicationUsers(List<ApplicationUser> applicationUsers) {
 		this.applicationUsers = applicationUsers;
 	}
+	
+	public String getSeller() {
+		return this.seller;
+	}
 
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "org.apache.commons.codec.binary.StringUtils, org.apache.commons.codec.binary.Base64"%>
 
 
 <!-- Product Single -->
@@ -7,8 +8,9 @@
 	<div class="product product-single">
 		<div class="product-thumb">
 			<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-			<img src="./img/product01.jpg" alt="">
+			<img src="<%= request.getParameter("image") %>" alt="<%=request.getParameter("name")%>">
 		</div>
+		
 		<div class="product-body">
 			<h3 class="product-price">$<%= request.getParameter("price") %></h3>
 			<div class="product-rating">

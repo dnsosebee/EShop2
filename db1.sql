@@ -27,14 +27,23 @@ CREATE TABLE IF NOT EXISTS `ctw`.`Product` (
   `idProduct` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(500) NOT NULL,
-  `image` LONGBLOB NULL DEFAULT NULL,
   `price` FLOAT NOT NULL,
   `stock` INT(11) NOT NULL,
+  `product_image` LONGBLOB,
+  `seller` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idProduct`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+
+INSERT INTO ctw.product
+VALUES('1', 'SampleProduct1', 'This is the first sample product', '10.00', '5', null, 'sampleseller@gmail.com');
+
+INSERT INTO ctw.product
+VALUES('2', 'SampleProduct2', 'This is the second sample product', '20.00', '10', null, 'sampleseller2@gmail.com');
+
 
 
 -- -----------------------------------------------------

@@ -49,11 +49,12 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/wishlist.html", new WishlistRequestHandler());
 		  handlerHash.put("/removeFromWishlist.html", new RemoveFromWishlistRequestHandler());
 		  handlerHash.put("/addToWishlist.html", new AddToWishlistRequestHandler());
+		  handlerHash.put("/addProduct.html", new AddProductHandler());
+		  handlerHash.put("/editSellerProducts.html", new EditProductsHandler());
+		  handlerHash.put("/editProduct.html", new EditProductsHandler());
 	  }
 
-		handlerHash.put("/addProduct.html", new AddProductHandler());
-		handlerHash.put("/editSellerProducts.html", new EditProductsHandler());
-		handlerHash.put("/editProduct.html", new EditProductsHandler());
+		
 	  
 	  public void doGet(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {

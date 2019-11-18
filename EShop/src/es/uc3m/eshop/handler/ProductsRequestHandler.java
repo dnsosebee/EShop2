@@ -16,7 +16,14 @@ public class ProductsRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 		
 		ProductManager pm = new ProductManager();
 		
-		List<Product> list = pm.findAll();
+		List<Product> list;
+		
+		if (request.getParameter("term") == null) {
+			list = pm.findAll();
+		} else {
+			list = pm.search(request.getParameter("term"));
+			request.setAttribute("term", request.getParameter("term"));
+		}
 		request.setAttribute("products", list);
 		
 		return "products.jsp";

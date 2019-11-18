@@ -4,22 +4,38 @@
 <jsp:include page="header.jsp"/>
 
 <jsp:include page="navigation.jsp"/>
+
+
+<% final int ROW_MAX_ITEMS = 4; %>
+
+<jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
+<br>
+<% if (request.getParameter("term") != null) { %>
+	<h1>Items Related to "<%= request.getParameter("term") %>":</h1>
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li class="active">Products Containing <%= request.getParameter("term") %></li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+<% } else { %>
 <h1>All Products</h1>
 	<!-- BREADCRUMB -->
 	<div id="breadcrumb">
 		<div class="container">
 			<ul class="breadcrumb">
-				<li><a href="#">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li class="active">Products</li>
 			</ul>
 		</div>
 	</div>
 	<!-- /BREADCRUMB -->
-
-<% final int ROW_MAX_ITEMS = 4; %>
-
-<jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
-
+<% } %>
 	<!-- section -->
 	<div class="section">
 		<!-- container -->

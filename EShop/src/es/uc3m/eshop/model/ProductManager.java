@@ -1,8 +1,9 @@
 package es.uc3m.eshop.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Vector;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,6 +34,23 @@ public class ProductManager {
 	public Product findById(String id) {
 		Product p = em.find(Product.class, Integer.parseInt(id));
 		return p;
+	}
+	
+	public List<Product> search(String term) {
+		Query query = em.createQuery("SELECT p FROM Product p WHERE p.name REGEXP '" + term + "'");
+		List<Product> products = new ArrayList<Product>();
+		Set<Product> uniques = new HashSet<Product>();
+		for (Object product:query.getResultList()) {
+			uniques.add((Product) product);
+		}
+		Query query2 = em.createQuery("SELECT p FROM Product p WHERE p.description REGEXP '" + term + "'");
+		for (Object product:query2.getResultList()) {
+			uniques.add((Product) product);
+		}
+		for (Product p: uniques) {
+			products.add(p);
+		}
+		return products;
 	}
 
 	public Product insert(Product p) {

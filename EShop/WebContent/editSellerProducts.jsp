@@ -18,6 +18,7 @@
 	<th>Stock</th>
 	<th>Image</th>
 	<th>Edit Product</th>
+	<th>Delete Product</th>
 	</tr>
 
 
@@ -35,9 +36,15 @@
 		<form method = "post" action = "editProduct.html">
 		<input type = "submit" value = "Edit Product">
 		<input type = "hidden" name = "editProduct" value = "<%= product.getIdProduct() %>">
-		
 		</form>
 		</td>
+		<td>
+		<form method = "post" action = "editProduct.html">
+		<input type = "submit" value = "Delete Product">
+		<input type = "hidden" name = "deleteProduct" value = "<%=product.getIdProduct() %>">
+		</form>
+		</td>
+		
 
 	</tr>
 	<%

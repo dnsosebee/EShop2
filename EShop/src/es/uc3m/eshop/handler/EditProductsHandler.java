@@ -28,6 +28,7 @@ public class EditProductsHandler implements es.uc3m.eshop.controlservlet.Request
 		request.setAttribute("sellerProducts", products);
 		
 		
+		//Handles product changes
 		if(request.getParameter("productChanges") != null)
 		{
 			System.out.println("Product about to be updated: +" + request.getParameter("productChanges"));
@@ -58,13 +59,30 @@ public class EditProductsHandler implements es.uc3m.eshop.controlservlet.Request
 		}
 		
 		
+		
+		
+		
 		//Grabs the request parameter "editProduct" from the form in "editSellerProducts" to edit product
 		if (request.getParameter("editProduct") != null)
 		{
+			System.out.println("EDITING PRODUCT");
 			Product productToEdit = pm.findById(request.getParameter("editProduct"));
 			
 			request.setAttribute("productToEdit", productToEdit);
 			return "editProduct.jsp";
+		}
+		
+		//Handles product deletion
+		
+		if (request.getParameter("deleteProduct") != null)
+		{
+			System.out.println("DELETING PRODUCT");
+			Product productToDelete = pm.findById(request.getParameter("deleteProduct"));
+			
+			pm.delete(productToDelete);
+			
+			return "deleteProductSuccess.jsp";
+			
 		}
 			
 

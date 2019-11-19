@@ -14,6 +14,7 @@ public class ProductsRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		
 		ProductManager pm = new ProductManager();
 		
 		List<Product> list;

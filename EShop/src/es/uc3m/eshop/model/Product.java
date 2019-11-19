@@ -2,10 +2,6 @@ package es.uc3m.eshop.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.StringUtils;
-
 import java.util.List;
 
 
@@ -25,16 +21,17 @@ public class Product implements Serializable {
 
 	private String description;
 
-	@Lob
-	private byte[] product_image;
-	
 	private String name;
 
 	private float price;
 
-	private int stock;
-	
+	@Lob
+	@Column(name="product_image")
+	private byte[] productImage;
+
 	private String seller;
+
+	private int stock;
 
 	//bi-directional many-to-many association to ApplicationUser
 	@ManyToMany
@@ -48,6 +45,10 @@ public class Product implements Serializable {
 			}
 		)
 	private List<ApplicationUser> applicationUsers;
+
+	//bi-directional many-to-one association to OrderProduct
+	@OneToMany(mappedBy="product")
+	private List<OrderProduct> orderProducts;
 
 	public Product() {
 	}
@@ -68,22 +69,6 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public byte[] getImage() {
-		return this.product_image;
-	}
-
-	public void setImage(byte[] image) {
-		this.product_image = image;
-	}
-	
-	public String getImageString() {
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append("data:image/png;base64,");
-		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(this.getImage(), false)));
-		return sb.toString();	
-	}
-
 	public String getName() {
 		return this.name;
 	}
@@ -98,6 +83,22 @@ public class Product implements Serializable {
 
 	public void setPrice(float price) {
 		this.price = price;
+	}
+
+	public byte[] getProductImage() {
+		return this.productImage;
+	}
+
+	public void setProductImage(byte[] productImage) {
+		this.productImage = productImage;
+	}
+
+	public String getSeller() {
+		return this.seller;
+	}
+
+	public void setSeller(String seller) {
+		this.seller = seller;
 	}
 
 	public int getStock() {
@@ -115,12 +116,27 @@ public class Product implements Serializable {
 	public void setApplicationUsers(List<ApplicationUser> applicationUsers) {
 		this.applicationUsers = applicationUsers;
 	}
-	
-	public String getSeller() {
-		return this.seller;
+
+	public List<OrderProduct> getOrderProducts() {
+		return this.orderProducts;
 	}
 
-	public void setSeller(String seller) {
-		this.seller = seller;
+	public void setOrderProducts(List<OrderProduct> orderProducts) {
+		this.orderProducts = orderProducts;
 	}
+
+	public OrderProduct addOrderProduct(OrderProduct orderProduct) {
+		getOrderProducts().add(orderProduct);
+		orderProduct.setProduct(this);
+
+		return orderProduct;
+	}
+
+	public OrderProduct removeOrderProduct(OrderProduct orderProduct) {
+		getOrderProducts().remove(orderProduct);
+		orderProduct.setProduct(null);
+
+		return orderProduct;
+	}
+
 }

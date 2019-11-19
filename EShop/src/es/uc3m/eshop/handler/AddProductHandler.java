@@ -56,7 +56,7 @@ public class AddProductHandler implements es.uc3m.eshop.controlservlet.RequestHa
 			addProduct.setSeller(seller);
 			addProduct.setPrice(productPrice);
 			addProduct.setStock(productStock);
-			addProduct.setImage(imageData);
+			addProduct.setProductImage(imageData);
 
 			pm.insert(addProduct);
 

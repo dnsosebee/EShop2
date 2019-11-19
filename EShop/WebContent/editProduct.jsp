@@ -16,12 +16,13 @@
 	<th>Price</th>
 	<th>Stock</th>
 	<th>Image</th>
+	<th>Edit Image</th>
 	</tr>
 
 
 	<% Product editProduct = (Product) request.getAttribute("productToEdit");%>
 	<tr>
-	<form method = "post" action = "editProduct.html">
+	<form method = "post" action = "editProduct.html" enctype = "multipart/form-data">
 	<input type = "hidden" name = "productChanges" value = "<%= editProduct.getIdProduct()%>">
 	
 		<td><%=editProduct.getIdProduct() %></td>
@@ -30,6 +31,7 @@
 		<td><input type = "text" name = "newProductPrice" value = "<%=editProduct.getPrice() %>"></input></td>
 		<td><input type = "number" name = "newProductStock" value = "<%=editProduct.getStock() %>"></input></td>
 		<td><img src="<%=editProduct.getImageString()%>" width=75px height =75px></td>
+		<td><input type = "file" name = "newProductImage" id = "newProductImage"></td>
 		<td><input  type = "submit" value = "Submit Changes"></td>
 	</form>
 	</td>

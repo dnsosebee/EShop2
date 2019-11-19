@@ -3,7 +3,9 @@ package es.uc3m.eshop.model;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.HashMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +13,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.http.HttpSession;
+
 
 public class ProductManager {
 
@@ -107,5 +110,31 @@ public class ProductManager {
 		em.merge(pr);
 		et.commit();
 		return product;
+	}
+	
+	public boolean delete(Product pr) {
+		
+		Product product = em.find(Product.class, pr.getIdProduct());
+		
+		if(product == null) {
+			return false;
+		}
+		et.begin();
+		em.remove(product);
+		et.commit();
+		return true;
+		
+	}
+	
+	public double calculateCart(HashMap<Product, Integer> cart)
+	{
+		double cartCost = 0;
+		for(Map.Entry<Product, Integer> entry : cart.entrySet()) {
+			
+			cartCost += entry.getKey().getPrice() * entry.getValue();
+		}
+				
+		
+		return Math.round(cartCost * 100.0) / 100.0;
 	}
 }

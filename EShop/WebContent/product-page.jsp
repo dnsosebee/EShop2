@@ -30,7 +30,7 @@
 					<div class="col-md-6">
 						<div id="product-main-view">
 							<div class="product-view">
-								<img src="./img/main-product01.jpg" alt="">
+								<img src="<%=product.getImageString() %>" alt="<%=product.getName()%>">
 							</div>
 						</div>
 					</div>
@@ -48,12 +48,16 @@
 								<% } %>
 							</p>
 
+							<form action = "addItemToCart.html" method = "post">
+				<input type = "hidden" name = "cartProductId" value = <%=request.getParameter("id") %>>
 							<div class="product-btns">
 								<div class="qty-input">
 									<span class="text-uppercase">QTY: </span>
-									<input class="input" type="number">
+									<input class="input" type="number" name = "productQuantity">
 								</div>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+								
+								<button class="primary-btn add-to-cart" type = "submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+								</form>
 							</div>
 						</div>
 						<div class="product-tab">

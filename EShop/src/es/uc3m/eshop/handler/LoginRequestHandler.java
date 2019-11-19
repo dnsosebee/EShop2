@@ -1,6 +1,7 @@
 package es.uc3m.eshop.handler;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import es.uc3m.eshop.model.*;
 import javax.servlet.ServletException;
@@ -31,6 +32,9 @@ public class LoginRequestHandler implements es.uc3m.eshop.controlservlet.Request
 			return "index.html";
 		}
 		else {
+			HttpSession session = request.getSession();
+			HashMap<Product, Integer> cartItems = new HashMap<Product, Integer>();
+			session.setAttribute("cartItems", cartItems);
 			return "login.jsp";
 		}
 	}

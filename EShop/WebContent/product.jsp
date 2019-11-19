@@ -7,7 +7,6 @@
 <div class="col-md-3 col-sm-6 col-xs-6">
 	<div class="product product-single">
 		<div class="product-thumb">
-			<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
 			<img src="<%= request.getParameter("image") %>" alt="<%=request.getParameter("name")%>">
 		</div>
 		
@@ -20,9 +19,14 @@
 				<i class="fa fa-star"></i>
 				<i class="fa fa-star-o empty"></i>
 			</div>
-			<h2 class="product-name"><a href="#"><%= request.getParameter("name") %></a></h2>
+			<h2 class="product-name"><a href="product-page.html?id=<%=request.getParameter("id")%>"><%= request.getParameter("name") %></a></h2>
 			<div class="product-btns">
-				<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+				<form action = "addToCart.html" method = "post">
+				<input type = "hidden" name = "cartProductID" value = <%=request.getParameter("id") %>>
+<%-- 				<input type = "hidden"  name = "cartProductAmount" value = <%= %>
+ --%>				<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+				</form>
+				
 				<form action="addToWishlist.html" method="POST">
 			    	<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
 			    	<input type="submit" value = "Add To Wishlist" style="color:green;margin-top:10px;" />

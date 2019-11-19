@@ -44,7 +44,7 @@ public class UserProfileRequestHandler implements es.uc3m.eshop.controlservlet.R
 		}
 		else if (au.getRole() == 2)
 		{
-			return "adminPanel.html";
+			return "adminPanel.jsp";
 		}
 		
 	

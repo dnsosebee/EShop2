@@ -4,6 +4,9 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
+
 
 /**
  * The persistent class for the Product database table.
@@ -91,6 +94,14 @@ public class Product implements Serializable {
 
 	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
+	}
+	
+public String getImageString() {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("data:image/png;base64,");
+		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(this.getProductImage(), false)));
+		return sb.toString();	
 	}
 
 	public String getSeller() {

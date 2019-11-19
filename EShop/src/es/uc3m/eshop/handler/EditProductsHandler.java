@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 public class EditProductsHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
 
@@ -39,11 +40,14 @@ public class EditProductsHandler implements es.uc3m.eshop.controlservlet.Request
 			float newProductPrice = Float.parseFloat(request.getParameter("newProductPrice"));
 			int newProductStock = Integer.parseInt(request.getParameter("newProductStock"));
 			
-			System.out.println(newProductName + newProductDescription + newProductPrice + newProductStock);
-			
 			Product editedProduct = pm.findById(request.getParameter("productChanges"));
+
 			
-			System.out.println("editedProduct: " + editedProduct.getName());
+			Part inImage = request.getPart("newProductImage");
+			byte[] imageData = new byte[(int) inImage.getSize()];
+			inImage.getInputStream().read(imageData, 0, imageData.length);
+			editedProduct.setProductImage(imageData);
+			
 			
 			editedProduct.setName(newProductName);
 			editedProduct.setDescription(newProductDescription);

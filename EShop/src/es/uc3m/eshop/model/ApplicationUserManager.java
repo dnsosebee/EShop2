@@ -104,6 +104,7 @@ public class ApplicationUserManager {
 			user.getProducts().add(p);
 			em.merge(user);
 			et.commit();
+			System.out.println("should work");
 		}
 	}
 	

@@ -118,23 +118,29 @@
 								</div>
 								<strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
 							</div>
-							<a href="login.html" class="text-uppercase">Login</a> / <a href="signup.html" class="text-uppercase">Join</a>
-							<ul class="custom-menu">
+							
+							
 								<% if (session.getAttribute("user") == null) { %>
-									<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login</a></li>
-									<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+									<a href="login.html" class="text-uppercase">Login</a> / <a href="signup.html" class="text-uppercase">Join</a>
+									<ul class="custom-menu">
+										<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login</a></li>
+										<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+									</ul>
 								<% } else { %>
-									<li><a href="userProfile.html"><i class="fa fa-user-o"></i> Dashboard</a></li>
-									<% if (((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) { %>
-										<li><a href="wishlist.html"><i class="fa fa-heart-o"></i> Wishlist</a></li>
-										<li><a href="orders.html"><i class="fa fa-check"></i> Orders</a></li>
+									<a href="logout.html" class="text-uppercase">Logout</a>
+									<ul class="custom-menu">
+										<li><a href="userProfile.html"><i class="fa fa-user-o"></i> Dashboard</a></li>
+										<% if (((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) { %>
+											<li><a href="wishlist.html"><i class="fa fa-heart-o"></i> Wishlist</a></li>
+											<li><a href="orders.html"><i class="fa fa-check"></i> Orders</a></li>
+										<% } %>
+										<li><a href="inbox.html"><i class="fa fa-exchange"></i> Inbox</a></li>
+										<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login As Other User</a></li>
+										<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+										<li><a href="logout.html"> Logout</a></li>
+									</ul>
 									<% } %>
-									<li><a href="inbox.html"><i class="fa fa-exchange"></i> Inbox</a></li>
-									<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login As Other User</a></li>
-									<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
-									<li><a href="logout.html"> Logout</a></li>
-									<% } %>
-							</ul>
+							
 						</li>
 						<!-- /Account -->
 						<!-- Cart -->

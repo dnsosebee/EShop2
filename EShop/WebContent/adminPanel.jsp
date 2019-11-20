@@ -40,5 +40,28 @@
 <h3>Admin Abilities</h3>
 <a href="adminEditUsers.html" style="padding:20px;">View and edit all users</a>
 <a href = "adminEditProducts.html" style="padding:20px;">View and edit all products</a>
+
+<br>
+<br>
+<h3>Messaging</h3>
+<form action="message.html" method="POST" >
+
+<input type="hidden" name="allUsers" value=" " />
+
+<input type="submit" value="Send a message to all shoppers">
+
+</form>
+
+<br>
+<form action="message.html" method="POST" >
+
+<input type="hidden" name="allSellers" value=" " />
+
+<input type="submit" value="Send a message to all sellers">
+
+</form>
+
 </div>
+
+
 <jsp:include page="footer.jsp" />

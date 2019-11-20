@@ -37,6 +37,8 @@ public class InboxRequestHandler implements es.uc3m.eshop.controlservlet.Request
 			query = "(allUsers IS NOT NULL AND allUsers = TRUE) OR (recipientEmail = '"+ au.getEmail()+"')";
 		} else if (au.getRole() == 1) {
 			query = "(allSellers IS NOT NULL AND allSellers = TRUE) OR (recipientEmail = '"+ au.getEmail() +"')";
+		} else if (au.getRole() == 2) {
+			query = "recipientEmail = '"+ au.getEmail()+"'";
 		}
 		
 		Context context;
@@ -57,6 +59,7 @@ public class InboxRequestHandler implements es.uc3m.eshop.controlservlet.Request
 			b.close();
 			ses.close();
 			con.close();
+			Collections.reverse(messageList);
 			request.setAttribute("messages", messageList);
 		} catch (Exception e) {
 			e.printStackTrace();

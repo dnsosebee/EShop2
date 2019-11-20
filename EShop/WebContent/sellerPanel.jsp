@@ -40,5 +40,15 @@
 <h3>Product Management</h3>
 <a href = "addProduct.html" style="padding:20px;">  Add Product  </a>
 <a href = "editSellerProducts.html" style="padding:20px;">  View and Edit Products  </a>
+<br>
+<br>
+<h3>Messaging</h3>
+<form action="message.html" method="POST" >
+
+<input type="hidden" name="allUsers" value=" " />
+
+<input type="submit" value="Send a message to all shoppers">
+
+</form>
 </div>
 <jsp:include page="footer.jsp" />

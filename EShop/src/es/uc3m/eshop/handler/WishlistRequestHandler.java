@@ -30,7 +30,7 @@ public class WishlistRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 	
 		List<Product> list = au.getProducts();
 		request.setAttribute("products", list);
-		
+
 		return "wishlist.jsp";	
 	}
 }

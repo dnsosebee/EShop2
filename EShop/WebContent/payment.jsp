@@ -113,7 +113,7 @@
 		</div>
 		<div class="pull-right">
 					<button class="primary-btn">
-						<a href="orderThanks.jsp">Place Order</a>
+						<a href="orderThanks.html">Place Order</a>
 					</button>
 				</div>
 

@@ -47,18 +47,35 @@
 								in stock
 								<% } %>
 							</p>
-
-							<form action = "addItemToCart.html" method = "post">
-				<input type = "hidden" name = "cartProductId" value = <%=request.getParameter("id") %>>
-							<div class="product-btns">
-								<div class="qty-input">
-									<span class="text-uppercase">QTY: </span>
-									<input class="input" type="number" name = "productQuantity">
-								</div>
-								
-								<button class="primary-btn add-to-cart" type = "submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+							<% if (request.getAttribute("amountInCart") == null) { %>
+								<form action = "addItemToCart.html" method = "post">
+									<input type = "hidden" name = "cartProductId" value = <%=request.getParameter("id") %>>
+									<input type = "hidden" name = "updateCart" value = "">
+									<div class="product-btns">
+										<div class="qty-input">
+											<span class="text-uppercase">QTY: </span>
+											<input class="input" type="number" required="required" name = "newProductQuantity" min="0" max="<%= product.getStock() %>">
+										</div>
+										
+										<button class="primary-btn add-to-cart" type = "submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+										
+									</div>
 								</form>
-							</div>
+							<% } else { %>
+								<form action = "addItemToCart.html" method = "post">
+									<input type = "hidden" name = "cartProductId" value = <%=request.getParameter("id") %>>
+									<input type = "hidden" name = "updateCart" value = "">
+									<div class="product-btns">
+										<div class="qty-input">
+											<span class="text-uppercase">NEW QTY: </span>
+											<input class="input" type="number" name = "newProductQuantity" value="<%=request.getAttribute("amountInCart") %>" min="0" max="<%= product.getStock() %>">
+										</div>
+										
+										<button class="primary-btn add-to-cart" type = "submit"><i class="fa fa-shopping-cart"></i> Update Quantity in Cart</button>
+										
+									</div>
+								</form>
+							<% } %>
 						</div>
 						<div class="product-tab">
 							<ul class="tab-nav">

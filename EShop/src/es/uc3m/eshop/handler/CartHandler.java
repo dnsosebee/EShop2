@@ -18,8 +18,12 @@ public class CartHandler implements es.uc3m.eshop.controlservlet.RequestHandler 
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("HANDLING CART");
 		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			return "login.html";
+		}
+		
+		System.out.println("HANDLING CART");
 		ProductManager pm = new ProductManager();
 
 		HashMap<Product, Integer> cartItems = (HashMap<Product, Integer>) session.getAttribute("cartItems");
@@ -31,28 +35,33 @@ public class CartHandler implements es.uc3m.eshop.controlservlet.RequestHandler 
 		Product addProduct;
 		int quantity;
 
+		List<Product> itemsToRemove = new ArrayList<Product>();
 		//Update cart quantities
 		if (request.getParameter("updateCart") != null) {
 			System.out.println("GETTING READY TO UPDATE THE CART");
-			for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
-
-//				int productId = entry.getKey().getIdProduct();
-				int oldQuantity = entry.getValue();
-				int newQuantity = Integer.parseInt(request.getParameter("newProductQuantity_" + entry.getKey().getIdProduct()));
-				
-				
-				if(oldQuantity != newQuantity)
-				{
-					entry.setValue(newQuantity);
+			if (request.getParameter("cartProductId") != null) {
+				cartItems.put(pm.findById(request.getParameter("cartProductId")), Integer.parseInt(request.getParameter("newProductQuantity")));
+			} else {
+				for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
+					if (request.getParameter("newProductQuantity_" + entry.getKey().getIdProduct()) != null) {
+						int newQuantity = Integer.parseInt(request.getParameter("newProductQuantity_" + entry.getKey().getIdProduct()));
+						entry.setValue(newQuantity);
+						if (newQuantity == 0) {
+							itemsToRemove.add(entry.getKey());
+						}
+					}
 				}
-
+			}
+			for (Product p : itemsToRemove) {
+				cartItems.remove(p);
 			}
 			
 			session.setAttribute("cartItems", cartItems);
 			
 			System.out.println("Quantities Updated");
-			cartCost = pm.calculatCart(cartItems);
+			cartCost = pm.calculateCart(cartItems);
 			session.setAttribute("cartCost", cartCost);
+			System.out.println(cartCost);
 			
 			return "showCart.jsp";
 
@@ -64,13 +73,13 @@ public class CartHandler implements es.uc3m.eshop.controlservlet.RequestHandler 
 			quantity = Integer.parseInt(request.getParameter("productQuantity"));
 			cartItems.put(addProduct, quantity);
 			session.setAttribute("cartItems", cartItems);
-			cartCost = pm.calculatCart(cartItems);
+			cartCost = pm.calculateCart(cartItems);
 			session.setAttribute("cartCost", cartCost);
 			
 			return "showCart.jsp";
 		}
 
-		return "deleteUserSuccess.jsp";
+		return "error.jsp";
 
 	}
 

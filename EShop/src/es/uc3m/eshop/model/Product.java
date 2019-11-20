@@ -149,5 +149,20 @@ public String getImageString() {
 
 		return orderProduct;
 	}
-
+	
+	@Override
+	public int hashCode() {
+		
+		return idProduct;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		try {
+			Product p = (Product) o;
+			return (p.getIdProduct() == idProduct);
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

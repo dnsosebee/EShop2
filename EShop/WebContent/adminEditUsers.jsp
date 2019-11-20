@@ -26,6 +26,7 @@
 		<th>Address</th>
 		<th>Name</th>
 		<th>Surname</th>
+		<th>Type</th>
 		<th>Edit User</th>
 		<th>Delete User</th>
 	</tr>
@@ -37,6 +38,15 @@
 		<td><%=user.getAddress()%></td>
 		<td><%=user.getName()%></td>
 		<td><%=user.getSurname()%></td>
+		<td>
+		<% if (user.getRole() == 2) { %>
+		Admin
+		<% } else if (user.getRole() == 1) { %>
+		Seller
+		<% } else { %>
+		Shopper
+		<% } %>
+		</td>
 		<td>
 		<form method = "post" action = "editUser.html">
 		<input type = "submit" value = "Edit User"/>

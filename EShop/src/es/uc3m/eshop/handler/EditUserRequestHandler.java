@@ -49,11 +49,13 @@ public class EditUserRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 			String newSurname = request.getParameter("newSurname");
 			String newPassword = request.getParameter("newPassword");
 			String newAddress = request.getParameter("newAddress");
+			int role = Integer.parseInt(request.getParameter("role"));
 			
 			userToEdit.setName(newName);
 			userToEdit.setSurname(newSurname);
 			userToEdit.setPassword(newPassword);
 			userToEdit.setAddress(newAddress);
+			userToEdit.setRole(role);
 
 			aum.update(userToEdit);
 			

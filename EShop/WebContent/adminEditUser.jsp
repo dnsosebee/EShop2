@@ -35,7 +35,13 @@
 	<br>
 	Address:<input type = "text" name = "newAddress" required value = "<%= au.getAddress() %>"></input>
 	<br>
-	
+	<br>
+	Type of User:
+	<input type="radio" name="role" value="0" <%=(au.getRole() == 0) ? "checked='checked'" : 0 %>> Shopper 
+	<input type="radio" name="role" value="1" <%=(au.getRole() == 1) ? "checked='checked'" : 0 %>> Seller 
+	<input type="radio" name="role" value="2" <%=(au.getRole() == 2) ? "checked='checked'" : 0 %>> Admin 
+	<br>
+	<br>
 	<input type = "submit" value = "Submit Changes">
 
 </form>

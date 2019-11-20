@@ -18,12 +18,6 @@
 
 <div style="margin:30px;">
 
-<h3>Admin Product Editor</h3>
-<%-- 
-<jsp:useBean id="users" scope="request"
-	class="java.util.ArrayList<es.uc3m.eshop.model.ApplicationUser>" />
- --%>
-
 <h3>Edit Products</h3>
 
 <table>

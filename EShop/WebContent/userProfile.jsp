@@ -9,9 +9,9 @@
 <jsp:include page="header.jsp" />
 
 
-
+<div style="margin:30px;">
 <img src="img/profileImage.png" width="100" height="100">
-<h3><%=au.getName()%></h3>
+<h3><%=au.getName()%> <%= au.getSurname() %></h3>
 
 
 <h4>Your Information:</h4>
@@ -32,7 +32,7 @@
 
 
 
-<a href="editUser.html">Edit Information</a>
-<a href="deleteUser.html">Delete Account</a>
-
+<a href="editUser.html" style="padding:20px;">  Edit Information  </a>
+<a href="deleteUser.html" style="padding:20px;">  Delete Account  </a>
+</div>
 <jsp:include page="footer.jsp" />

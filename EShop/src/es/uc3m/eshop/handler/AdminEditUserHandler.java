@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AdminPanelHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
+public class AdminEditUserHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)

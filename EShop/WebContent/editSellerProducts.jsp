@@ -3,6 +3,7 @@
 
 <jsp:include page="header.jsp"/>
 
+<div style="margin:30px;">
 
 <h1>View and Edit Products</h1>
 
@@ -54,6 +55,6 @@
 </table>
 
 
-
+</div>
 
 <jsp:include page="footer.jsp"/>

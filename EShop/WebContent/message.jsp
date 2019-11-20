@@ -4,6 +4,7 @@
 <jsp:useBean id="user" scope="session" type="es.uc3m.eshop.model.ApplicationUser"/>
 
 <jsp:include page="header.jsp"/>
+<div style="margin:30px;">
 
 <% String titleVal = ""; %>
 <% if (request.getParameter("isReply") != null) { %>
@@ -64,4 +65,5 @@
 <input type="submit" value="Go To Inbox (and don't send your message)">
 
 </form>
+</div>
 <jsp:include page="footer.jsp"/>

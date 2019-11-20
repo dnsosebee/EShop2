@@ -3,6 +3,7 @@
 
 <jsp:include page="header.jsp"/>
 
+<div style="margin:30px;">
 
 <form action="login.html" method="POST" >
 
@@ -20,4 +21,5 @@
 	<p style="color:red;">The email and password entered did not match an account. Please try again.</p>
 <% } %>
 
+</div>
 <jsp:include page="footer.jsp"/>

@@ -6,7 +6,7 @@
 <jsp:useBean id="messages" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.EShopMessage>"/>
 
 <h1>Your Inbox</h1>
-
+<div style="margin:30px;">
 <% for (EShopMessage m: messages) { %>
 	<% StringBuilder sb = new StringBuilder(); %>
 	<% sb.append("From "); %>
@@ -32,5 +32,5 @@
 	<input type="submit" value="<%= sb.toString() %>">
 	</form>
 <% } %>
-
+</div>
 <jsp:include page="footer.jsp"/>

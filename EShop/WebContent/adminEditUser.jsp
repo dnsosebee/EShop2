@@ -3,6 +3,7 @@
 
 <jsp:include page="header.jsp"/>
 
+<div style="margin:30px;">
 
 <h1>Edit User</h1>
 
@@ -27,5 +28,6 @@
 
 </form>
 
+</div>
 
 <jsp:include page="footer.jsp"/>

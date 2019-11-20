@@ -3,6 +3,8 @@
 
 <jsp:include page="header.jsp"/>
 
+<div style="margin:30px;">
+
 <form action="signup.html" method="POST" >
 
 <label>Email: <input type="email" required name="email"></label>
@@ -27,4 +29,5 @@
 
 </form>
 
+</div>
 <jsp:include page="footer.jsp"/>

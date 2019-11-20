@@ -4,8 +4,8 @@
 
 
 <jsp:include page="header.jsp" />
-
-<h3>Admin Panel</h3>
+<div style="margin:30px;">
+<h2>Admin Panel</h2>
 <%-- 
 <jsp:useBean id="users" scope="request"
 	class="java.util.ArrayList<es.uc3m.eshop.model.ApplicationUser>" />
@@ -17,7 +17,7 @@
 
 
 <img src="img/profileImage.png" width="100" height="100">
-<h3><%=au.getName()%></h3>
+<h3><%=au.getName()%> <%= au.getSurname() %></h3>
 
 
 <h4>Your Information:</h4>
@@ -36,10 +36,9 @@
 		<td><%=au.getSurname()%></td>
 </table>
 
-
-<h3>Admin Abilities</h3>
-<a href="adminEditUsers.html">View and edit all users</a>
 <br>
-<a href = "adminEditProducts.html">View and edit all products</a>
-
+<h3>Admin Abilities</h3>
+<a href="adminEditUsers.html" style="padding:20px;">View and edit all users</a>
+<a href = "adminEditProducts.html" style="padding:20px;">View and edit all products</a>
+</div>
 <jsp:include page="footer.jsp" />

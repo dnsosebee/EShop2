@@ -4,8 +4,9 @@
 
 <jsp:include page="header.jsp" />
 
+<div style="margin:30px;">
 
-<h3>Here we have the cart</h3>
+<h3>Your Cart</h3>
 
 
 <%HashMap<Product, Integer> cartItems = (HashMap<Product, Integer>) session.getAttribute("cartItems"); %>
@@ -49,4 +50,5 @@
 
 <h4>Your cart cost: <%= session.getAttribute("cartCost") %></h4>
 
+</div>
 <jsp:include page="footer.jsp" />

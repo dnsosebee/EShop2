@@ -41,7 +41,7 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/checkout.html", new CheckoutRequestHandler());
 		  handlerHash.put("/send.html", new SendRequestHandler());
 		  handlerHash.put("/editUser.html", new EditUserRequestHandler());
-		  handlerHash.put("/adminPanel.html", new AdminPanelHandler());
+		  handlerHash.put("/adminPanel.html", new AdminEditProductHandler());
 //		  handlerHash.put("/consumer.html", new ConsumeRequestHandler());
 //		  handlerHash.put("/browser.html", new BrowserRequestHandler());
 		  handlerHash.put("/message.html", new MessageRequestHandler());

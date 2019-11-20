@@ -5,14 +5,14 @@
 
 <jsp:include page="header.jsp"/>
 
-<jsp:include page="navigation.jsp"/>
-
 <jsp:useBean id="products" scope="request" class="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
 
 	<!-- section -->
 	<div class="section">
+	
 		<!-- container -->
 		<div class="container">
+		<h1>Welcome to EShop!</h1>
 			<!-- row -->
 			<div class="row">
 				<!-- section title -->
@@ -27,6 +27,7 @@
 				        <jsp:param name="price" value="<%= products.get(i).getPrice() %>" />
 				        <jsp:param name="name" value="<%= products.get(i).getName() %>"/>
 				        <jsp:param name="id" value="<%= products.get(i).getIdProduct() %>"/>
+				        <jsp:param name="image" value = "<%= products.get(i).getImageString() %>" />
 				    </jsp:include>
 				<% } %>
 			</div>

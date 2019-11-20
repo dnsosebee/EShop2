@@ -4,7 +4,8 @@
 
 
 <jsp:include page="header.jsp" />
+<div style="margin:30px;">
 
 <h3>Product has been edited successfully</h3>
-
+</div>
 <jsp:include page="footer.jsp" />

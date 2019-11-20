@@ -5,6 +5,8 @@
 
 <jsp:include page="header.jsp" />
 
+<div style="margin:30px;">
+
 <h3>Add Product</h3>
 <%-- 
 <jsp:useBean id="users" scope="request"
@@ -43,6 +45,6 @@
 </form>
 
 
-
+</div>
 
 <jsp:include page="footer.jsp" />

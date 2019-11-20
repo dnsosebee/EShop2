@@ -3,9 +3,6 @@
 
 <jsp:include page="header.jsp"/>
 
-<jsp:include page="navigation.jsp"/>
-
-
 <% final int ROW_MAX_ITEMS = 4; %>
 
 <jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>

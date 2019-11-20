@@ -5,6 +5,8 @@
 
 <jsp:include page="header.jsp" />
 
+<div style="margin:30px;">
+
 <h3>Admin Panel</h3>
 <%-- 
 <jsp:useBean id="users" scope="request"
@@ -53,6 +55,6 @@
 </table>
 
 
-
+</div>
 
 <jsp:include page="footer.jsp" />

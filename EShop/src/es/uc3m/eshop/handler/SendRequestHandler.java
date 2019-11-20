@@ -65,7 +65,7 @@ public class SendRequestHandler implements es.uc3m.eshop.controlservlet.RequestH
 			e.printStackTrace();
 		}
 
-		return "index.html";
+		return "inbox.html";
 	}
 
 }

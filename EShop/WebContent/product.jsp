@@ -12,13 +12,6 @@
 		
 		<div class="product-body">
 			<h3 class="product-price">$<%= request.getParameter("price") %></h3>
-			<div class="product-rating">
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star-o empty"></i>
-			</div>
 			<h2 class="product-name"><a href="product-page.html?id=<%=request.getParameter("id")%>"><%= request.getParameter("name") %></a></h2>
 			<div class="product-btns">
 				<form action = "addToCart.html" method = "post">

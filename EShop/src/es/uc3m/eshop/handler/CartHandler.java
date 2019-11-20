@@ -22,6 +22,9 @@ public class CartHandler implements es.uc3m.eshop.controlservlet.RequestHandler 
 		if (session.getAttribute("user") == null) {
 			return "login.html";
 		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() != 0) {
+			return "error.jsp";
+		}
 		
 		System.out.println("HANDLING CART");
 		ProductManager pm = new ProductManager();

@@ -137,14 +137,15 @@
 							</ul>
 						</li>
 						<!-- /Account -->
-
 						<!-- Cart -->
+						<% if (session.getAttribute("user") != null && ((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) { %>
 						<li class="header-cart dropdown default-dropdown">
 							<div class="shopping-cart-btns">
 								<button class="main-btn" onclick="window.location.href = 'showCart.html';">View Cart</button>
 								<button class="primary-btn" onclick="window.location.href = 'checkout.html';">Checkout <i class="fa fa-arrow-circle-right"></i></button>
 							</div>
 						</li>
+						<% } %>
 						<!-- /Cart -->
 					</ul>
 				</div>

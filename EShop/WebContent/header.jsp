@@ -55,6 +55,16 @@
 
 </head>
 
+<%
+	es.uc3m.eshop.model.ApplicationUser au = new es.uc3m.eshop.model.ApplicationUser();
+	boolean hasUser = false;
+	if (session.getAttribute("user") != null) {
+		hasUser = true;
+		au = (es.uc3m.eshop.model.ApplicationUser) session.getAttribute("user");
+	}
+%>
+
+
 <body>
 	<!-- HEADER -->
 	<header>
@@ -62,11 +72,15 @@
 		<div id="top-header">
 			<div class="container">
 				<div class="pull-left">
-					<span>Welcome to E-shop!</span>
+					<% if (hasUser) { %>
+						<span>Welcome to E-shop <%= au.getName() %>!</span>
+					<% } else { %>
+						<span>Welcome to E-Shop!</span>
+					<% } %>
 				</div>
 				<div class="pull-right">
 					<ul class="header-top-links">
-						<li><a href="products.html">Products</a></li>
+						<li><a href="products.html">VIEW ALL PRODUCTS</a></li>
 					</ul>
 				</div>
 			</div>
@@ -79,7 +93,7 @@
 				<div class="pull-left">
 					<!-- Logo -->
 					<div class="header-logo">
-						<a class="logo" href="#">
+						<a class="logo" href="index.html">
 							<img src="./img/logo.png" alt="">
 						</a>
 					</div>
@@ -106,12 +120,19 @@
 							</div>
 							<a href="login.html" class="text-uppercase">Login</a> / <a href="signup.html" class="text-uppercase">Join</a>
 							<ul class="custom-menu">
-								<li><a href="userProfile.html"><i class="fa fa-user-o"></i> My Dashboard</a></li>
-								<li><a href="wishlist.html"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
-								<li><a href="inbox.html"><i class="fa fa-exchange"></i> Inbox</a></li>
-								<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login</a></li>
-								<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
-								<li><a href="logout.html"><i class="fa fa-check"></i> Logout</a></li>
+								<% if (session.getAttribute("user") == null) { %>
+									<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login</a></li>
+									<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+								<% } else { %>
+									<li><a href="userProfile.html"><i class="fa fa-user-o"></i> My Dashboard</a></li>
+									<% if (((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) { %>
+										<li><a href="wishlist.html"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
+									<% } %>
+									<li><a href="inbox.html"><i class="fa fa-exchange"></i> Inbox</a></li>
+									<li><a href="login.html"><i class="fa fa-unlock-alt"></i> Login As Other User</a></li>
+									<li><a href="signUp.html"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+									<li><a href="logout.html"> Logout</a></li>
+									<% } %>
 							</ul>
 						</li>
 						<!-- /Account -->

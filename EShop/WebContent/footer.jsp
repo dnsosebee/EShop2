@@ -11,7 +11,7 @@
 					<div class="footer">
 						<!-- footer logo -->
 						<div class="footer-logo">
-							<a class="logo" href="#">
+							<a class="logo" href="index.html">
 		            <img src="./img/logo.png" alt="">
 		          </a>
 						</div>
@@ -24,15 +24,25 @@
 				<!-- footer widget -->
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="footer">
+					<% if (session.getAttribute("user") == null) { %>
+						<h3 class="footer-header">Account</h3>
+						<ul class="list-links">
+								<li><a href="login.html"> Login</a></li>
+								<li><a href="signUp.html"> Create An Account</a></li>
+						</ul>
+					<% } else { %>
 						<h3 class="footer-header">My Account</h3>
 						<ul class="list-links">
 								<li><a href="userProfile.html"> My Dashboard</a></li>
-								<li><a href="wishlist.html"> My Wishlist</a></li>
+								<% if (((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) { %>
+									<li><a href="wishlist.html"> My Wishlist</a></li>
+								<% } %>
 								<li><a href="inbox.html"> Inbox</a></li>
-								<li><a href="login.html"> Login</a></li>
+								<li><a href="login.html"> Login As Other User</a></li>
 								<li><a href="signUp.html"> Create An Account</a></li>
 								<li><a href="logout.html"> Logout</a></li>
 						</ul>
+					<% } %>
 					</div>
 				</div>
 				<!-- /footer widget -->

@@ -1,6 +1,7 @@
 package es.uc3m.eshop.handler;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import es.uc3m.eshop.model.*;
@@ -17,6 +18,7 @@ public class IndexRequestHandler implements es.uc3m.eshop.controlservlet.Request
 		ProductManager pm = new ProductManager();
 		
 		List<Product> list = pm.findAll();
+		
 		request.setAttribute("products", list);
 		
 		return "index.jsp";

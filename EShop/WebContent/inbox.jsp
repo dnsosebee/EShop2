@@ -5,8 +5,12 @@
 
 <jsp:useBean id="messages" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.EShopMessage>"/>
 
-<h1>Your Inbox</h1>
 <div style="margin:30px;">
+
+<h1>Your Inbox</h1>
+<br>
+<span style="font-style:italic">Click on a message to read its content or to respond.</span>
+<br>
 <% for (EShopMessage m: messages) { %>
 	<% StringBuilder sb = new StringBuilder(); %>
 	<% sb.append("From "); %>

@@ -13,12 +13,14 @@
 		<!-- container -->
 		<div class="container">
 		<h1>Welcome to EShop!</h1>
+		<br>
+		<br>
 			<!-- row -->
 			<div class="row">
 				<!-- section title -->
 				<div class="col-md-12">
 					<div class="section-title">
-						<h2 class="title">Picked For You</h2>
+						<h3 class="title">Picked For You</h3>
 					</div>
 				</div>
 				<!-- section title -->

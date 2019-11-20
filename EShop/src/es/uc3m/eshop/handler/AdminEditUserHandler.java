@@ -27,6 +27,6 @@ public class AdminEditUserHandler implements es.uc3m.eshop.controlservlet.Reques
 
 		
 		
-		return "adminPanel.jsp";
+		return "adminEditUsers.jsp";
 	}
 }

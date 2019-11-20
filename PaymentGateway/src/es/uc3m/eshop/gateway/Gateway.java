@@ -68,7 +68,7 @@ public class Gateway implements MessageListener {
 				}
 			}
 			List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
-			Order order = new Order();
+			MyOrder order = new MyOrder();
 			order.setApplicationUser(purchase.getAu());
 			order.setDate(purchase.getDate());
 			order.setOrderProducts(orderProducts);
@@ -84,7 +84,7 @@ public class Gateway implements MessageListener {
 				
 				OrderProduct op = new OrderProduct();
 				op.setId(pk);
-				op.setOrder(order);
+				op.setMyOrder(order);
 				op.setProduct(product);
 				op.setQuantity(quantity);
 				om.insert(op);

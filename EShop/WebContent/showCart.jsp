@@ -29,7 +29,7 @@
 <%for(Map.Entry<Product, Integer> entry : cartItems.entrySet()) { %>
 <tr>
 <td> <img src = "<%=entry.getKey().getImageString() %>" height = 75px width = 75px> </td>
-<td> <%=entry.getKey().getName() %></td>
+<td><a href="product-page.html?id=<%=entry.getKey().getIdProduct() %>"> <%=entry.getKey().getName() %></a></td>
 <td> <%=entry.getKey().getPrice() %></td>
 <td> <input min="0" max="<%= entry.getKey().getStock() %>" type = "number" value = "<%= entry.getValue() %>" name = "newProductQuantity_<%=entry.getKey().getIdProduct() %>"> </td>
 </tr>

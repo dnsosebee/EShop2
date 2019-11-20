@@ -3,6 +3,17 @@
 
 <jsp:include page="header.jsp"/>
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li class="active">Edit Products</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div style="margin:30px;">
 
 <h1>View and Edit Products</h1>

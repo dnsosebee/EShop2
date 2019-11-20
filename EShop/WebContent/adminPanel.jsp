@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, es.uc3m.eshop.model.*"%>
 
-
-
 <jsp:include page="header.jsp" />
+
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div style="margin:30px;">
-<h2>Admin Panel</h2>
+<h2>Admin Homepage</h2>
 <%-- 
 <jsp:useBean id="users" scope="request"
 	class="java.util.ArrayList<es.uc3m.eshop.model.ApplicationUser>" />

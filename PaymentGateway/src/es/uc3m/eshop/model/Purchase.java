@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
-import es.uc3m.eshop.model.*;
-
 public class Purchase implements Serializable{
 
 	private static final long serialVersionUID = 1L;

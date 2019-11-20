@@ -5,13 +5,18 @@
 
 <jsp:include page="header.jsp" />
 
-<div style="margin:30px;">
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li class="active">All Users</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
 
-<h3>Admin Panel</h3>
-<%-- 
-<jsp:useBean id="users" scope="request"
-	class="java.util.ArrayList<es.uc3m.eshop.model.ApplicationUser>" />
- --%>
+<div style="margin:30px;">
 
 <h3>Edit Users</h3>
 

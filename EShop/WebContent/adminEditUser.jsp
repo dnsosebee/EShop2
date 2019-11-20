@@ -3,6 +3,18 @@
 
 <jsp:include page="header.jsp"/>
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="adminEditUsers.html">All Users</a></li>
+				<li class="active">Edit User</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div style="margin:30px;">
 
 <h1>Edit User</h1>

@@ -7,6 +7,17 @@
 <jsp:useBean id="orders" scope="request" type="java.util.List<es.uc3m.eshop.model.MyOrder>"/>
 <% final int ROW_MAX_ITEMS = 4; %>
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li class="active"> My Orders </li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <!-- section -->
 	<div class="section">
 		<!-- container -->

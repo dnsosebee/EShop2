@@ -5,6 +5,17 @@
 
 <jsp:include page="header.jsp" />
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li class="active">Add Product</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div style="margin:30px;">
 
 <h3>Add Product</h3>

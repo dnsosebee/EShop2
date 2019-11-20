@@ -8,16 +8,15 @@ import java.util.List;
 
 
 /**
- * The persistent class for the Order database table.
+ * The persistent class for the myOrder database table.
  * 
  */
 @Entity
-@NamedQuery(name="Order.findAll", query="SELECT o FROM Order o")
-public class Order implements Serializable {
+@NamedQuery(name="MyOrder.findAll", query="SELECT m FROM MyOrder m")
+public class MyOrder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idOrder;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -25,16 +24,16 @@ public class Order implements Serializable {
 
 	private BigDecimal total;
 
+	//bi-directional many-to-one association to OrderProduct
+	@OneToMany(mappedBy="myOrder")
+	private List<OrderProduct> orderProducts;
+
 	//bi-directional many-to-one association to ApplicationUser
 	@ManyToOne
 	@JoinColumn(name="owner")
 	private ApplicationUser applicationUser;
 
-	//bi-directional many-to-one association to OrderProduct
-	@OneToMany(mappedBy="order")
-	private List<OrderProduct> orderProducts;
-
-	public Order() {
+	public MyOrder() {
 	}
 
 	public int getIdOrder() {
@@ -61,14 +60,6 @@ public class Order implements Serializable {
 		this.total = total;
 	}
 
-	public ApplicationUser getApplicationUser() {
-		return this.applicationUser;
-	}
-
-	public void setApplicationUser(ApplicationUser applicationUser) {
-		this.applicationUser = applicationUser;
-	}
-
 	public List<OrderProduct> getOrderProducts() {
 		return this.orderProducts;
 	}
@@ -79,16 +70,24 @@ public class Order implements Serializable {
 
 	public OrderProduct addOrderProduct(OrderProduct orderProduct) {
 		getOrderProducts().add(orderProduct);
-		orderProduct.setOrder(this);
+		orderProduct.setMyOrder(this);
 
 		return orderProduct;
 	}
 
 	public OrderProduct removeOrderProduct(OrderProduct orderProduct) {
 		getOrderProducts().remove(orderProduct);
-		orderProduct.setOrder(null);
+		orderProduct.setMyOrder(null);
 
 		return orderProduct;
+	}
+
+	public ApplicationUser getApplicationUser() {
+		return this.applicationUser;
+	}
+
+	public void setApplicationUser(ApplicationUser applicationUser) {
+		this.applicationUser = applicationUser;
 	}
 
 }

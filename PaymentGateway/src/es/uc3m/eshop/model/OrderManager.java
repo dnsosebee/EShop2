@@ -1,14 +1,24 @@
 package es.uc3m.eshop.model;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 public class OrderManager {
 
 	private EntityManager em;
 	private EntityTransaction et;
+
 	
-	public Order insert(Order order) {
+	public OrderManager() {
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("EShop");
+		em = emf.createEntityManager();
+		et = em.getTransaction();
+	}
+	
+	public MyOrder insert(MyOrder order) {
 		
 		et.begin();
 		
@@ -19,8 +29,16 @@ public class OrderManager {
 		return order;
 		
 	}
+	
+	public MyOrder findById(int id) {
+		
+		MyOrder mo = em.find(MyOrder.class, id);
+		
+		return mo;
+		
+	}
 
-public OrderProductPK insert(OrderProductPK pk) {
+	public OrderProductPK insert(OrderProductPK pk) {
 		
 		et.begin();
 		
@@ -32,7 +50,7 @@ public OrderProductPK insert(OrderProductPK pk) {
 		
 	}
 
-public OrderProduct insert(OrderProduct op) {
+	public OrderProduct insert(OrderProduct op) {
 	
 	et.begin();
 	

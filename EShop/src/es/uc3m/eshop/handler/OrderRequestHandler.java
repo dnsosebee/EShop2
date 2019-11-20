@@ -26,8 +26,11 @@ public class OrderRequestHandler implements es.uc3m.eshop.controlservlet.Request
 			return "error.jsp";
 		}
 		
+		ProductManager pm = new ProductManager();
+
 		HttpSession session = request.getSession();
-		
+		request.setAttribute("order", mo);
+		request.setAttribute("order", mo);
 		request.setAttribute("order", mo);
 		return "order.jsp";
 	}

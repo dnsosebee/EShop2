@@ -6,9 +6,9 @@
 <% final int ROW_MAX_ITEMS = 4; %>
 
 <jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
-<br>
+
 <% if (request.getParameter("term") != null) { %>
-	<h1>Items Related to "<%= request.getParameter("term") %>":</h1>
+	
 	<!-- BREADCRUMB -->
 	<div id="breadcrumb">
 		<div class="container">
@@ -19,9 +19,10 @@
 			</ul>
 		</div>
 	</div>
+	<h1 style="margin-left:100px; margin-top:40px; ">Items Related to "<%= request.getParameter("term") %>":</h1>
 	<!-- /BREADCRUMB -->
 <% } else { %>
-<h1>All Products</h1>
+
 	<!-- BREADCRUMB -->
 	<div id="breadcrumb">
 		<div class="container">
@@ -32,6 +33,7 @@
 		</div>
 	</div>
 	<!-- /BREADCRUMB -->
+<h1 style="margin-left:100px; margin-top:40px; ">All Products</h1>
 <% } %>
 	<!-- section -->
 	<div class="section">

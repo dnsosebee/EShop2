@@ -5,6 +5,17 @@
 
 <jsp:useBean id="messages" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.EShopMessage>"/>
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li class="active"> Inbox </li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div style="margin:30px;">
 
 <h1>Your Inbox</h1>

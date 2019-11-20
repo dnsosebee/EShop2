@@ -8,9 +8,19 @@
 
 <jsp:include page="header.jsp" />
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
 
 <div style="margin:30px;">
 
+<h2>Seller Homepage</h2>
+<br>
 <img src="img/profileImage.png" width="100" height="100">
 <h3><%=au.getName()%> <%= au.getSurname() %></h3>
 

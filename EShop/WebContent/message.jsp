@@ -4,6 +4,19 @@
 <jsp:useBean id="user" scope="session" type="es.uc3m.eshop.model.ApplicationUser"/>
 
 <jsp:include page="header.jsp"/>
+
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="inbox.html">Inbox</a></li>
+				<li class="active"> Read Message </li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div style="margin:30px;">
 
 <% String titleVal = ""; %>
@@ -60,10 +73,5 @@
 
 <br><br>
 
-<form action="inbox.html" method="GET" >
-
-<input type="submit" value="Go To Inbox (and don't send your message)">
-
-</form>
 </div>
 <jsp:include page="footer.jsp"/>

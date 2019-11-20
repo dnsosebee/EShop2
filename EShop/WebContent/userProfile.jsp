@@ -30,6 +30,8 @@
 		<td><%=au.getSurname()%></td>
 </table>
 
+<br>
+<br>
 
 
 <a href="editUser.html" style="padding:20px;">  Edit Information  </a>

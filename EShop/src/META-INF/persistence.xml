@@ -4,9 +4,9 @@
 		<non-jta-data-source>CTWDataSource</non-jta-data-source>
 		<class>es.uc3m.eshop.model.Product</class>
 		<class>es.uc3m.eshop.model.ApplicationUser</class>
-		<class>es.uc3m.eshop.model.Order</class>
 		<class>es.uc3m.eshop.model.OrderProduct</class>
 		<class>es.uc3m.eshop.model.OrderProductPK</class>
+		<class>es.uc3m.eshop.model.MyOrder</class>
 		
 	<!--  	 <properties>
         <property name="eclipselink.ddl-generation" value="create-tables" />

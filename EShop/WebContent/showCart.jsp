@@ -46,7 +46,7 @@
 
 <br>
 
-<h4>Your cart cost: <%= session.getAttribute("cartCost") %></h4>
+<h4>Your cart cost: $<%= session.getAttribute("cartCost") %></h4>
 
 </div>
 <jsp:include page="footer.jsp" />

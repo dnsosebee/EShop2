@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, es.uc3m.eshop.model.*"%>
 
-<jsp:include page="header.jsp"/>s
+<jsp:include page="header.jsp"/>
 
-<h1>Wishlist</h1>
 	<!-- BREADCRUMB -->
 	<div id="breadcrumb">
 		<div class="container">
@@ -23,6 +22,7 @@
 	<div class="section">
 		<!-- container -->
 		<div class="container">
+			<h1>Wishlist</h1>
 			<!-- row -->
 			<div class="row">
 				<!-- MAIN -->

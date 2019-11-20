@@ -34,9 +34,9 @@ public class ApplicationUser implements Serializable {
 	@ManyToMany(mappedBy="applicationUsers")
 	private List<Product> products;
 
-	//bi-directional many-to-one association to Order
+	//bi-directional many-to-one association to MyOrder
 	@OneToMany(mappedBy="applicationUser")
-	private List<Order> orders;
+	private List<MyOrder> myOrders;
 
 	public ApplicationUser() {
 	}
@@ -97,26 +97,26 @@ public class ApplicationUser implements Serializable {
 		this.products = products;
 	}
 
-	public List<Order> getOrders() {
-		return this.orders;
+	public List<MyOrder> getMyOrders() {
+		return this.myOrders;
 	}
 
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
+	public void setMyOrders(List<MyOrder> myOrders) {
+		this.myOrders = myOrders;
 	}
 
-	public Order addOrder(Order order) {
-		getOrders().add(order);
-		order.setApplicationUser(this);
+	public MyOrder addMyOrder(MyOrder myOrder) {
+		getMyOrders().add(myOrder);
+		myOrder.setApplicationUser(this);
 
-		return order;
+		return myOrder;
 	}
 
-	public Order removeOrder(Order order) {
-		getOrders().remove(order);
-		order.setApplicationUser(null);
+	public MyOrder removeMyOrder(MyOrder myOrder) {
+		getMyOrders().remove(myOrder);
+		myOrder.setApplicationUser(null);
 
-		return order;
+		return myOrder;
 	}
 
 }

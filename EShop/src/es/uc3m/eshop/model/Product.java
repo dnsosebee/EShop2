@@ -2,10 +2,11 @@ package es.uc3m.eshop.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.StringUtils;
+
+import java.util.List;
 
 
 /**
@@ -13,9 +14,7 @@ import org.apache.commons.codec.binary.StringUtils;
  * 
  */
 @Entity
-@NamedQueries(value= {
 @NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
-})
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -36,6 +35,10 @@ public class Product implements Serializable {
 
 	private int stock;
 
+	//bi-directional many-to-one association to OrderProduct
+	@OneToMany(mappedBy="product")
+	private List<OrderProduct> orderProducts;
+
 	//bi-directional many-to-many association to ApplicationUser
 	@ManyToMany
 	@JoinTable(
@@ -48,10 +51,6 @@ public class Product implements Serializable {
 			}
 		)
 	private List<ApplicationUser> applicationUsers;
-
-	//bi-directional many-to-one association to OrderProduct
-	@OneToMany(mappedBy="product")
-	private List<OrderProduct> orderProducts;
 
 	public Product() {
 	}
@@ -95,14 +94,6 @@ public class Product implements Serializable {
 	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
 	}
-	
-public String getImageString() {
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append("data:image/png;base64,");
-		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(this.getProductImage(), false)));
-		return sb.toString();	
-	}
 
 	public String getSeller() {
 		return this.seller;
@@ -118,14 +109,6 @@ public String getImageString() {
 
 	public void setStock(int stock) {
 		this.stock = stock;
-	}
-
-	public List<ApplicationUser> getApplicationUsers() {
-		return this.applicationUsers;
-	}
-
-	public void setApplicationUsers(List<ApplicationUser> applicationUsers) {
-		this.applicationUsers = applicationUsers;
 	}
 
 	public List<OrderProduct> getOrderProducts() {
@@ -149,20 +132,21 @@ public String getImageString() {
 
 		return orderProduct;
 	}
+
+	public List<ApplicationUser> getApplicationUsers() {
+		return this.applicationUsers;
+	}
+
+	public void setApplicationUsers(List<ApplicationUser> applicationUsers) {
+		this.applicationUsers = applicationUsers;
+	}
 	
-	@Override
-	public int hashCode() {
+	public String getImageString() {
 		
-		return idProduct;
+		StringBuilder sb = new StringBuilder();
+		sb.append("data:image/png;base64,");
+		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(this.getProductImage(), false)));
+		return sb.toString();	
 	}
-	
-	@Override
-	public boolean equals(Object o) {
-		try {
-			Product p = (Product) o;
-			return (p.getIdProduct() == idProduct);
-		} catch (Exception e) {
-			return false;
-		}
-	}
+
 }

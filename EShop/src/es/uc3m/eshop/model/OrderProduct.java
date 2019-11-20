@@ -18,15 +18,15 @@ public class OrderProduct implements Serializable {
 
 	private int quantity;
 
-	//bi-directional many-to-one association to Order
-	@ManyToOne
-	@JoinColumn(name="idOrder")
-	private Order order;
-
 	//bi-directional many-to-one association to Product
 	@ManyToOne
 	@JoinColumn(name="idProduct")
 	private Product product;
+
+	//bi-directional many-to-one association to MyOrder
+	@ManyToOne
+	@JoinColumn(name="idOrder")
+	private MyOrder myOrder;
 
 	public OrderProduct() {
 	}
@@ -47,20 +47,20 @@ public class OrderProduct implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public Order getOrder() {
-		return this.order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-
 	public Product getProduct() {
 		return this.product;
 	}
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public MyOrder getMyOrder() {
+		return this.myOrder;
+	}
+
+	public void setMyOrder(MyOrder myOrder) {
+		this.myOrder = myOrder;
 	}
 
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.uc3m.eshop.gateway.Gateway;
+import es.uc3m.eshop.model.MessageSender;
 
 /**
  * Servlet implementation class ControllerServlet
@@ -23,6 +24,7 @@ public class ControllerServlet extends HttpServlet {
 	
 	public void init(ServletConfig config) {
 		gateway = new Gateway();
+		System.out.println("STARTING GATEWAY");
 		gateway.start();
 	}
 	
@@ -32,6 +34,9 @@ public class ControllerServlet extends HttpServlet {
 	
 	  public void doGet(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {  
+			System.out.println("DO GET GATEWAY");
+			MessageSender ms = new MessageSender();
+			ms.sendSuccessMessage("tester1@gmail.com", 1);
 		RequestDispatcher rd =request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	  }

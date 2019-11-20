@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
+import es.uc3m.eshop.gateway.Gateway;
 import es.uc3m.eshop.model.*;
 
 import javax.jms.Connection;
@@ -79,11 +80,21 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 			e.printStackTrace();
 		}
 		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		Logger log = Logger.getLogger(PurchaseHandler.class.getName());
-		log.info("log test");
-	
+		Gateway g = new Gateway();
+		g.start();
+		g.nextMessage();
+		g.stop();
 		
+		session.setAttribute("cartItems", new HashMap<Product,Integer>());
+		double d = 0;
+		session.setAttribute("cartCost", d);
 		
 		return "orderThanks.jsp";
 	}

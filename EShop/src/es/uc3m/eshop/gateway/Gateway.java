@@ -19,7 +19,7 @@ import javax.naming.InitialContext;
 
 import es.uc3m.eshop.model.*;
 
-public class Gateway implements MessageListener {
+public class Gateway {
 
 	MessageConsumer cons;
 	Connection con;
@@ -36,7 +36,6 @@ public class Gateway implements MessageListener {
 			ses = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			con.start();
 			cons = ses.createConsumer(queue);
-			ses.setMessageListener(new Gateway());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,23 +51,31 @@ public class Gateway implements MessageListener {
 		} catch (Exception e) {;}
 	}
 
-	@Override
-	public void onMessage(Message obj) {
-		System.out.println("ON MESSAGE GATEWAY");
+	public void nextMessage() {
 		try{
+			Message obj =  cons.receive();
+			System.out.println("ON MESSAGE GATEWAY");
 			Purchase purchase = (Purchase) ((ObjectMessage)obj).getObject();
+
 			OrderManager om = new OrderManager();
 			ProductManager pm = new ProductManager();
 			List<Product> products = pm.findAll();
 			HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+			for (Product p : products) {
+				map.put(p.getIdProduct(), p.getStock());
+			}
 			for (Map.Entry<Product, Integer> entry : purchase.getProducts().entrySet()) {
 				int product = entry.getKey().getIdProduct();
 				int quantity = entry.getValue();
 				if (map.get(product) < quantity) {
 					new MessageSender().sendFailureMessage(purchase.getAu().getEmail());
+
+					System.out.println("ON MESSAGE GATEWAY 3");
 					return;
 				}
 			}
+
+			System.out.println("Good ORDER?");
 			List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
 			MyOrder order = new MyOrder();
 			order.setApplicationUser(purchase.getAu());
@@ -79,20 +86,11 @@ public class Gateway implements MessageListener {
 			for (Map.Entry<Product, Integer> entry : purchase.getProducts().entrySet()) {
 				Product product = entry.getKey();
 				int quantity = entry.getValue();
-				OrderProductPK pk = new OrderProductPK();
-				pk.setIdOrder(order.getIdOrder());
-				pk.setIdProduct(product.getIdProduct());
-				om.insert(pk);
-				
-				OrderProduct op = new OrderProduct();
-				op.setId(pk);
-				op.setMyOrder(order);
-				op.setProduct(product);
-				op.setQuantity(quantity);
-				om.insert(op);
-			}
+				product.setStock(product.getStock() - quantity);
+				pm.update(product);
+			} 
+			System.out.println("NEW MESSAGE?");
 			new MessageSender().sendSuccessMessage(purchase.getAu().getEmail(),order.getIdOrder());
-		} catch (Exception e) {;}
-		
+		} catch (Exception e) {e.printStackTrace();}
 	}
 }

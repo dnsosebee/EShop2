@@ -22,29 +22,6 @@
 <p>This order was made on <%=order.getDate().toString() %>.</p>
 <br>
 <br>
-<table>
-<tr>
-<th>Product Image</th>
-<th>Product Name</th>
-<th>Price</th>
-<th>Quantity</th>
-</tr>
-
-
-
-<%for(OrderProduct op : order.getOrderProducts()) { %>
-<tr>
-<td> <img src = "<%=op.getProduct().getImageString() %>" height = 75px width = 75px> </td>
-<td><a href="product-page.html?id=<%=op.getProduct().getIdProduct() %>"> <%=op.getProduct().getName() %></a></td>
-<td> <%=op.getProduct().getPrice() %></td>
-<td> <%=op.getQuantity() %></td>
-</tr>
-
-<% } %>
-
-</table>
-
-<br>
 
 <h4>Total cost of this order: $<%= order.getTotal() %></h4>
 

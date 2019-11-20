@@ -17,6 +17,9 @@ public class AddToWishlistRequestHandler implements es.uc3m.eshop.controlservlet
 		if (session.getAttribute("user") == null) {
 			return "login.html";
 		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() != 0) {
+			return "error.jsp";
+		}
 		ApplicationUser au = (ApplicationUser)session.getAttribute("user");
 		ApplicationUserManager aum = new ApplicationUserManager();
 		aum.addToWishlist(au, Integer.parseInt(request.getParameter("id")));

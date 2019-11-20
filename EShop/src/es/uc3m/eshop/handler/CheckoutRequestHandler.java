@@ -7,12 +7,21 @@ import es.uc3m.eshop.model.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CheckoutRequestHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			return "login.html";
+		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() != 0) {
+			return "error.jsp";
+		}
 		
 		return "checkout.jsp";
 	}

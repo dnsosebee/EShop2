@@ -21,7 +21,9 @@ public class AddProductHandler implements es.uc3m.eshop.controlservlet.RequestHa
 		HttpSession session = request.getSession();
 		ApplicationUser au = (ApplicationUser) session.getAttribute("user");
 		
-		
+		if (((ApplicationUser)session.getAttribute("user")).getRole() == 0) {
+			return "error.jsp";
+		}
 		
 		ProductManager pm = new ProductManager();
 

@@ -19,10 +19,15 @@ public class OrdersRequestHandler implements es.uc3m.eshop.controlservlet.Reques
 		if (session.getAttribute("user") == null) {
 			return "login.html";
 		}
+		
 		auxiliar = (ApplicationUser) session.getAttribute("user");
 		ApplicationUserManager aum=new ApplicationUserManager();
 		au = aum.findByEmail(auxiliar.getEmail());
-	
+		
+		if (au.getRole() != 0) {
+			return "error.jsp";
+		}
+		
 		List<MyOrder> list = au.getMyOrders();
 		request.setAttribute("orders", list);
 		

@@ -16,6 +16,13 @@ public class OrderRequestHandler implements es.uc3m.eshop.controlservlet.Request
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			return "login.html";
+		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() != 0) {
+			return "error.jsp";
+		}
 		
 		OrderManager om = new OrderManager();
 		if (request.getParameter("id") == null) {
@@ -28,7 +35,6 @@ public class OrderRequestHandler implements es.uc3m.eshop.controlservlet.Request
 		
 		ProductManager pm = new ProductManager();
 
-		HttpSession session = request.getSession();
 		request.setAttribute("order", mo);
 		request.setAttribute("order", mo);
 		request.setAttribute("order", mo);

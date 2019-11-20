@@ -16,12 +16,19 @@ import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class SendRequestHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			return "login.html";
+		}
+		
 		
 		String title = request.getParameter("title");
 		String message = request.getParameter("message");
@@ -39,8 +46,20 @@ public class SendRequestHandler implements es.uc3m.eshop.controlservlet.RequestH
 			ObjectMessage mess = ses.createObjectMessage();
 			if (request.getParameter("allUsers") != null) {
 				mess.setBooleanProperty("allUsers",true);
+				if (((ApplicationUser)session.getAttribute("user")).getRole() == 0) {
+					prod.close();
+					ses.close();
+					con.close();
+					return "error.jsp";
+				}
 			}
 			if (request.getParameter("allSellers") != null) {
+				if (((ApplicationUser)session.getAttribute("user")).getRole() != 2) {
+					prod.close();
+					ses.close();
+					con.close();
+					return "error.jsp";
+				}
 				mess.setBooleanProperty("allSellers",true);
 			}
 			if (request.getParameter("recipientEmail") != null) {

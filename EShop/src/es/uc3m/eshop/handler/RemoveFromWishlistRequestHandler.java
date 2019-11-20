@@ -17,6 +17,10 @@ public class RemoveFromWishlistRequestHandler implements es.uc3m.eshop.controlse
 		if (session.getAttribute("user") == null) {
 			return "login.html";
 		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() != 0) {
+			return "error.jsp";
+		}
+		
 		ApplicationUser au = (ApplicationUser)session.getAttribute("user");
 		ApplicationUserManager aum = new ApplicationUserManager();
 		aum.removeFromWishlist(au, Integer.parseInt(request.getParameter("id")));

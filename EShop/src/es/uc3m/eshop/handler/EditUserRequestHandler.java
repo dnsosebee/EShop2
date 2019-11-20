@@ -18,6 +18,13 @@ public class EditUserRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 		
 		
 		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			return "login.html";
+		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() != 2) {
+			return "error.jsp";
+		}
+		
 		ApplicationUserManager aum = new ApplicationUserManager();
 
 	

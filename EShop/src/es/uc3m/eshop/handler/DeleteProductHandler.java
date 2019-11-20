@@ -17,6 +17,13 @@ public class DeleteProductHandler implements es.uc3m.eshop.controlservlet.Reques
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			return "login.html";
+		}
+		if (((ApplicationUser)session.getAttribute("user")).getRole() == 0) {
+			return "error.jsp";
+		}
 		
 		ProductManager pm = new ProductManager();
 		

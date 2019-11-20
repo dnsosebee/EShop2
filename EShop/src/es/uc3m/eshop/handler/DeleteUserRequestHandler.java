@@ -27,6 +27,9 @@ public class DeleteUserRequestHandler implements es.uc3m.eshop.controlservlet.Re
 		ApplicationUser au;
 		au = (ApplicationUser) session.getAttribute("user");
 		
+		if (au == null) {
+			return "login.html";
+		}
 		
 		ApplicationUserManager aum = new ApplicationUserManager();
 		if (aum.delete(au))

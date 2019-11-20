@@ -5,6 +5,15 @@
 
 <jsp:include page="header.jsp"/>
 
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <jsp:useBean id="products" scope="request" class="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
 
 	<!-- section -->

@@ -73,7 +73,7 @@
 			<div class="container">
 				<div class="pull-left">
 					<% if (hasUser) { %>
-						<span>Welcome to E-shop <%= au.getName() %>!</span>
+						<span>Welcome to E-shop, <%= au.getName() %>!</span>
 					<% } else { %>
 						<span>Welcome to E-Shop!</span>
 					<% } %>

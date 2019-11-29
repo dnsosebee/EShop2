@@ -1,6 +1,8 @@
 package es.uc3m.tiw.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +12,8 @@ import es.uc3m.eshop.model.*;
 
 
 
+@Controller
+@CrossOrigin
 public class BankController {
 
 	

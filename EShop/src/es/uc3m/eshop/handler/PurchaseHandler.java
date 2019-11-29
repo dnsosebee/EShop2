@@ -23,12 +23,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.Response;
+
+import org.glassfish.jersey.client.ClientConfig;
 
 public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+	
+		
 		
 		System.out.println("HANDLING PURCHASE");
 		
@@ -53,6 +67,22 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 		purchase.setDate(purchaseDate);
 		purchase.setPrice(purchasePrice);
 		purchase.setProducts(cartItems);
+		
+		
+		System.out.println("TESTING POST TO BANK SERVICE");
+		ClientConfig config = new ClientConfig();
+		Client client = ClientBuilder.newClient(config);
+		WebTarget webtarget = client.target("http://localhost:5810");
+		WebTarget webtargetPath = webtarget.path("purchase");
+		Invocation.Builder invocationBuilder = webtargetPath.request(MediaType.APPLICATION_JSON);
+		Response responseWS = invocationBuilder.post(Entity.entity(purchase, MediaType.APPLICATION_JSON))	;	
+		int status = responseWS.getStatus();
+		
+		System.out.println("POST STATUS: " + status);
+		
+		
+		System.out.println("FINISHING POST");
+		
 		
 		
 		Context context;

@@ -36,7 +36,6 @@ public class Oldproduct implements Serializable {
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name="myorder")
-	
 	private Myorder myOrderBean;
 
 	public Oldproduct() {

@@ -1,4 +1,5 @@
-package es.uc3m.eshop.model;
+package es.uc3m.ctw.model;
+
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -12,11 +13,12 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="MyOrder.findAll", query="SELECT m FROM MyOrder m")
-public class MyOrder implements Serializable {
+public class Myorder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="idorder")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idOrder;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -28,9 +30,9 @@ public class MyOrder implements Serializable {
 
 	//bi-directional many-to-one association to OldProduct
 	@OneToMany(mappedBy="myOrderBean")
-	private List<OldProduct> oldProducts;
+	private List<Oldproduct> oldProducts;
 
-	public MyOrder() {
+	public Myorder() {
 	}
 
 	public int getIdOrder() {
@@ -65,22 +67,22 @@ public class MyOrder implements Serializable {
 		this.total = total;
 	}
 
-	public List<OldProduct> getOldProducts() {
+	public List<Oldproduct> getOldProducts() {
 		return this.oldProducts;
 	}
 
-	public void setOldProducts(List<OldProduct> oldProducts) {
+	public void setOldProducts(List<Oldproduct> oldProducts) {
 		this.oldProducts = oldProducts;
 	}
 
-	public OldProduct addOldProduct(OldProduct oldProduct) {
+	public Oldproduct addOldProduct(Oldproduct oldProduct) {
 		getOldProducts().add(oldProduct);
 		oldProduct.setMyOrderBean(this);
 
 		return oldProduct;
 	}
 
-	public OldProduct removeOldProduct(OldProduct oldProduct) {
+	public Oldproduct removeOldProduct(Oldproduct oldProduct) {
 		getOldProducts().remove(oldProduct);
 		oldProduct.setMyOrderBean(null);
 

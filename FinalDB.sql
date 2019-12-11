@@ -34,17 +34,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ctw`.`confirmation`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ctw`.`confirmation` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
 -- Table `ctw`.`message`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ctw`.`message` (
@@ -52,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `ctw`.`message` (
   `subject` VARCHAR(200) NOT NULL,
   `body` VARCHAR(2000) NOT NULL,
   `sender` VARCHAR(255) NOT NULL,
-  `recipient` VARCHAR(255),
+  `recipient` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`idmessage`),
   INDEX `fk_message_applicationUser1_idx` (`sender` ASC) VISIBLE,
   INDEX `fk_message_applicationUser2_idx` (`recipient` ASC) VISIBLE,
@@ -63,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `ctw`.`message` (
     FOREIGN KEY (`recipient`)
     REFERENCES `ctw`.`applicationuser` (`email`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -101,17 +91,14 @@ CREATE TABLE IF NOT EXISTS `ctw`.`oldProduct` (
   PRIMARY KEY (`idOldProduct`),
   INDEX `fk_oldProduct_myOrder1_idx` (`myOrder` ASC) VISIBLE,
   INDEX `fk_oldProduct_applicationUser1_idx` (`seller` ASC) VISIBLE,
-  CONSTRAINT `fk_oldProduct_myOrder1`
-    FOREIGN KEY (`myOrder`)
-    REFERENCES `ctw`.`myOrder` (`idOrder`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_oldProduct_applicationUser1`
     FOREIGN KEY (`seller`)
-    REFERENCES `ctw`.`applicationUser` (`email`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `ctw`.`applicationuser` (`email`),
+  CONSTRAINT `fk_oldProduct_myOrder1`
+    FOREIGN KEY (`myOrder`)
+    REFERENCES `ctw`.`myorder` (`idOrder`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -129,29 +116,30 @@ CREATE TABLE IF NOT EXISTS `ctw`.`product` (
   `seller` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idProduct`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ctw`.`wishlist`
+-- Table `ctw`.`applicationUser_has_product`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ctw`.`wishlist` (
-  `email` VARCHAR(45) NOT NULL,
-  `idProduct` INT(11) NOT NULL,
-  PRIMARY KEY (`email`, `idProduct`),
-  INDEX `idProduct_idx` (`idProduct` ASC) VISIBLE,
-  CONSTRAINT `email`
-    FOREIGN KEY (`email`)
-    REFERENCES `ctw`.`applicationuser` (`email`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `idProduct`
-    FOREIGN KEY (`idProduct`)
+CREATE TABLE IF NOT EXISTS `ctw`.`applicationUser_has_product` (
+  `applicationUser_email` VARCHAR(255) NOT NULL,
+  `product_idProduct` INT(11) NOT NULL,
+  PRIMARY KEY (`applicationUser_email`, `product_idProduct`),
+  INDEX `fk_applicationUser_has_product_product1_idx` (`product_idProduct` ASC) VISIBLE,
+  INDEX `fk_applicationUser_has_product_applicationUser1_idx` (`applicationUser_email` ASC) VISIBLE,
+  CONSTRAINT `fk_applicationUser_has_product_applicationUser1`
+    FOREIGN KEY (`applicationUser_email`)
+    REFERENCES `ctw`.`applicationUser` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_applicationUser_has_product_product1`
+    FOREIGN KEY (`product_idProduct`)
     REFERENCES `ctw`.`product` (`idProduct`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -178,10 +166,7 @@ VALUES('1', 'Car', 'This is the first sample product', '10.00', '5', null, 'sell
 INSERT INTO ctw.product
 VALUES('2', 'Plane', 'This is the second sample product', '20.00', '10', null, 'seller2@gmail.com');
 
-INSERT INTO ctw.confirmation
-VALUES(1);
-
-INSERT INTO ctw.wishlist
+INSERT INTO ctw.applicationUser_has_product
 VALUES('tester1@gmail.com',2);
 
 INSERT INTO ctw.message

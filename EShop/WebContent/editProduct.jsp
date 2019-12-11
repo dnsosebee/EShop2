@@ -21,7 +21,9 @@
 	</tr>
 
 
-	<% Product editProduct = (Product) request.getAttribute("productToEdit");%>
+	<%
+		es.uc3m.ctw.model.Product editProduct = (es.uc3m.ctw.model.Product) request.getAttribute("productToEdit");
+	%>
 	<tr>
 	<form method = "post" action = "editProduct.html" enctype = "multipart/form-data">
 	<input type = "hidden" name = "productChanges" value = "<%= editProduct.getIdProduct()%>">

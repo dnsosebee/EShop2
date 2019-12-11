@@ -34,7 +34,9 @@
 						<h3 class="footer-header">My Account</h3>
 						<ul class="list-links">
 								<li><a href="userProfile.html"> Dashboard</a></li>
-								<% if (((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) { %>
+								<%
+									if (((Applicationuser.uc3m.ctw.model.ApplicationUser.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) {
+								%>
 									<li><a href="wishlist.html"> Wishlist</a></li>
 									<li><a href="orders.html"> Orders</a></li>
 								<% } %>

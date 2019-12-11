@@ -31,8 +31,12 @@
 		<th>Delete User</th>
 	</tr>
 	
-	<% List<ApplicationUser> allUsers = (List<ApplicationUser>) request.getAttribute("allUsers"); %>
-	<% for(ApplicationUser user: allUsers) {%>
+	<%
+			List<es.uc3m.ctw.model.Applicationuser> allUsers = (List<es.uc3m.ctw.model.Applicationuser>) request.getAttribute("allUsers");
+		%>
+	<%
+		for(es.uc3m.ctw.model.Applicationuser user: allUsers) {
+	%>
 	<tr>
 		<td><%=user.getEmail()%></td>
 		<td><%=user.getAddress()%></td>

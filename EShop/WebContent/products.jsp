@@ -5,7 +5,7 @@
 
 <% final int ROW_MAX_ITEMS = 4; %>
 
-<jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Product>"/>
+<jsp:useBean id="products" scope="request" type="java.util.ArrayList<es.uc3m.es.uc3m.ctw.model.Product.uc3m.eshop.model.Product>"/>
 
 <% if (request.getParameter("term") != null) { %>
 	

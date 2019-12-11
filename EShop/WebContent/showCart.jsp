@@ -23,7 +23,9 @@
 <span style="font-style:italic;">To remove an item, set quantity to zero.</span>
 <br>
 
-<%HashMap<Product, Integer> cartItems = (HashMap<Product, Integer>) session.getAttribute("cartItems"); %>
+<%
+	HashMap<es.uc3m.ctw.model.Product, Integer> cartItems = (HashMap<es.uc3m.ctw.model.Product, Integer>) session.getAttribute("cartItems");
+%>
 
 
 <form action = "addItemToCart.html" method = "post">
@@ -38,7 +40,9 @@
 
 
 
-<%for(Map.Entry<Product, Integer> entry : cartItems.entrySet()) { %>
+<%
+	for(Map.Entry<es.uc3m.ctw.model.Product, Integer> entry : cartItems.entrySet()) {
+%>
 <tr>
 <td> <img src = "<%=entry.getKey().getImageString() %>" height = 75px width = 75px> </td>
 <td><a href="product-page.html?id=<%=entry.getKey().getIdProduct() %>"> <%=entry.getKey().getName() %></a></td>

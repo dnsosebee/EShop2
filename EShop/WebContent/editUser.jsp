@@ -18,8 +18,9 @@
 
 <h1>Edit User Profile</h1>
 
-<% 	ApplicationUser au = (ApplicationUser) session.getAttribute("user");
- %>
+<%
+	es.uc3m.ctw.model.Applicationuser au = (es.uc3m.ctw.model.Applicationuser) session.getAttribute("user");
+%>
 
 
 <form method = "post" action = "editUser.html">

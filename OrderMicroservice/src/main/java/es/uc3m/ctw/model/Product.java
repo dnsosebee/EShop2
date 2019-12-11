@@ -1,4 +1,5 @@
-package es.uc3m.eshop.model;
+package es.uc3m.ctw.model;
+
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,6 +16,8 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="idproduct")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProduct;
 
 	private String description;
@@ -24,24 +27,11 @@ public class Product implements Serializable {
 	private float price;
 
 	@Column(name="product_image")
-	private Object productImage;
+	private byte[] productImage;
 
 	private String seller;
 
 	private int stock;
-
-	//bi-directional many-to-many association to ApplicationUser
-	@ManyToMany
-	@JoinTable(
-		name="applicationUser_has_product"
-		, joinColumns={
-			@JoinColumn(name="product_idProduct")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="applicationUser_email")
-			}
-		)
-	private List<ApplicationUser> applicationUsers;
 
 	public Product() {
 	}
@@ -78,11 +68,11 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
-	public Object getProductImage() {
+	public byte[] getProductImage() {
 		return this.productImage;
 	}
 
-	public void setProductImage(Object productImage) {
+	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
 	}
 
@@ -100,14 +90,6 @@ public class Product implements Serializable {
 
 	public void setStock(int stock) {
 		this.stock = stock;
-	}
-
-	public List<ApplicationUser> getApplicationUsers() {
-		return this.applicationUsers;
-	}
-
-	public void setApplicationUsers(List<ApplicationUser> applicationUsers) {
-		this.applicationUsers = applicationUsers;
 	}
 
 }

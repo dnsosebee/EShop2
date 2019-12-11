@@ -32,8 +32,12 @@
 		<th>Delete Product</th>
 	</tr>
 	
-	<% List<Product> allProducts = (List<Product>) request.getAttribute("allProducts"); %>
-	<% for(Product product: allProducts) {%>
+	<%
+			List<es.uc3m.ctw.model.Product> allProducts = (List<es.uc3m.ctw.model.Product>) request.getAttribute("allProducts");
+		%>
+	<%
+		for(es.uc3m.ctw.model.Product product: allProducts) {
+	%>
 	<tr>
 		<td><%=product.getIdProduct()%></td>
 		<td><%=product.getName()%></td>

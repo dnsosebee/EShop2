@@ -18,7 +18,9 @@
 
 <h1>View and Edit Products</h1>
 
-<%  List<Product> sellerProducts = (List<Product>) request.getAttribute("sellerProducts");%>
+<%
+	List<es.uc3m.ctw.model.Product> sellerProducts = (List<es.uc3m.ctw.model.Product>) request.getAttribute("sellerProducts");
+%>
 
 
 <table>
@@ -35,7 +37,7 @@
 
 
 	<%
-		for (Product product : sellerProducts) {
+		for (es.uc3m.ctw.model.Product product : sellerProducts) {
 	%>
 	<tr>
 		<td><%=product.getIdProduct() %>

@@ -80,8 +80,6 @@ public class Product implements Serializable {
 		this.stock = stock;
 	}
 
-	
-
 	public String getSeller() {
 		return seller;
 	}

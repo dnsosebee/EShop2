@@ -190,6 +190,9 @@ VALUES(1,'first message to all shoppers','this was generated using the SQL scrip
 INSERT INTO ctw.message
 VALUES(2,'first message to seller@gmail.com','this was generated using the SQL script. hi seller Jim. Love, tester1@gmail.com.','tester1@gmail.com','seller@gmail.com');
 
+INSERT INTO ctw.message
+VALUES (3, 'message to tester1', 'hey there tester1', 'seller@gmail.com', 'tester1@gmail.com');
+
 INSERT INTO ctw.myOrder
 VALUES(1,'tester1@gmail.com','2019-11-21 14:44:04',4.95);
 

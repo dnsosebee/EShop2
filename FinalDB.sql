@@ -47,13 +47,12 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 -- Table `ctw`.`message`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ctw`.`personalMessage` (
+CREATE TABLE IF NOT EXISTS `ctw`.`message` (
   `idmessage` INT(11) NOT NULL AUTO_INCREMENT,
   `subject` VARCHAR(200) NOT NULL,
   `body` VARCHAR(2000) NOT NULL,
-  `type` INT(11) NOT NULL,
   `sender` VARCHAR(255) NOT NULL,
-  `recipient` VARCHAR(255) NOT NULL,
+  `recipient` VARCHAR(255),
   PRIMARY KEY (`idmessage`),
   INDEX `fk_message_applicationUser1_idx` (`sender` ASC) VISIBLE,
   INDEX `fk_message_applicationUser2_idx` (`recipient` ASC) VISIBLE,
@@ -62,44 +61,6 @@ CREATE TABLE IF NOT EXISTS `ctw`.`personalMessage` (
     REFERENCES `ctw`.`applicationuser` (`email`),
   CONSTRAINT `fk_message_applicationUser2`
     FOREIGN KEY (`recipient`)
-    REFERENCES `ctw`.`applicationuser` (`email`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `ctw`.`message`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ctw`.`shoppersMessage` (
-  `idmessage` INT(11) NOT NULL AUTO_INCREMENT,
-  `subject` VARCHAR(200) NOT NULL,
-  `body` VARCHAR(2000) NOT NULL,
-  `type` INT(11) NOT NULL,
-  `sender` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`idmessage`),
-  INDEX `fk_shoppers_message_applicationUser1_idx` (`sender` ASC) VISIBLE,
-  CONSTRAINT `fk_shoppers_message_applicationUser1`
-    FOREIGN KEY (`sender`)
-    REFERENCES `ctw`.`applicationuser` (`email`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `ctw`.`message`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ctw`.`sellersMessage` (
-  `idmessage` INT(11) NOT NULL AUTO_INCREMENT,
-  `subject` VARCHAR(200) NOT NULL,
-  `body` VARCHAR(2000) NOT NULL,
-  `type` INT(11) NOT NULL,
-  `sender` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`idmessage`),
-  INDEX `fk_sellers_message_applicationUser1_idx` (`sender` ASC) VISIBLE,
-  CONSTRAINT `fk_sellers_message_applicationUser1`
-    FOREIGN KEY (`sender`)
     REFERENCES `ctw`.`applicationuser` (`email`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -223,14 +184,11 @@ VALUES(1);
 INSERT INTO ctw.wishlist
 VALUES('tester1@gmail.com',2);
 
-INSERT INTO ctw.sellersMessage
-VALUES(1,'first message to all sellers','this was generated using the SQL script. hi sellers.',2,'admin@gmail.com');
+INSERT INTO ctw.message
+VALUES(1,'first message to all shoppers','this was generated using the SQL script. hi shoppers.','seller@gmail.com', null);
 
-INSERT INTO ctw.shoppersMessage
-VALUES(1,'first message to all shoppers','this was generated using the SQL script. hi shoppers.',1,'seller@gmail.com');
-
-INSERT INTO ctw.personalMessage
-VALUES(1,'first message to seller@gmail.com','this was generated using the SQL script. hi seller Jim. Love, tester1@gmail.com.',0,'tester1@gmail.com','seller@gmail.com');
+INSERT INTO ctw.message
+VALUES(2,'first message to seller@gmail.com','this was generated using the SQL script. hi seller Jim. Love, tester1@gmail.com.','tester1@gmail.com','seller@gmail.com');
 
 INSERT INTO ctw.myOrder
 VALUES(1,'tester1@gmail.com','2019-11-21 14:44:04',4.95);

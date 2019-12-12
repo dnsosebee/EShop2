@@ -28,16 +28,16 @@ public class Product implements Serializable {
 	
 	private int stock;
 	
-	private byte[] productImage;
+	private byte[] product_image;
 	
 	private String seller;
 
 	public byte[] getProductImage() {
-		return productImage;
+		return product_image;
 	}
 
 	public void setProductImage(byte[] productImage) {
-		this.productImage = productImage;
+		this.product_image = productImage;
 	}
 
 	public int getIdProduct() {

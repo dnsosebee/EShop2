@@ -24,9 +24,10 @@ public class MyController {
 
 	@RequestMapping(value = "products", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<List<Product>> findAll(@RequestParam(required = false) Double min,
-			@RequestParam(required = false) Double max, @RequestParam(required = false) String seller) {
+			@RequestParam(required = false) Double max, @RequestParam(required = false) String seller,
+			@RequestParam(required = false) String keyword) {
 
-		List<Product> list = productDAO.custom(min, max, seller);
+		List<Product> list = productDAO.custom(min, max, seller, keyword);
 
 		return new ResponseEntity<List<Product>>(list, HttpStatus.OK);
 	}
@@ -48,7 +49,7 @@ public class MyController {
 		Product savedProduct = productDAO.save(product);
 		return new ResponseEntity<Product>(savedProduct, HttpStatus.CREATED);
 	}
-	
+
 	@RequestMapping(value = "products", method = RequestMethod.PUT)
 	public @ResponseBody ResponseEntity<?> update(@RequestBody Product product) {
 		Product dbProduct = productDAO.findById(product.getIdProduct()).orElse(null);
@@ -64,7 +65,7 @@ public class MyController {
 		productDAO.save(dbProduct);
 		return new ResponseEntity<Product>(dbProduct, HttpStatus.OK);
 	}
-		
+
 	@RequestMapping(value = "products/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody ResponseEntity<?> delete(@PathVariable int id) {
 		Product product = productDAO.findById(id).orElse(null);
@@ -74,5 +75,5 @@ public class MyController {
 		productDAO.delete(product);
 		return new ResponseEntity<Product>(HttpStatus.OK);
 	}
-		
+
 }

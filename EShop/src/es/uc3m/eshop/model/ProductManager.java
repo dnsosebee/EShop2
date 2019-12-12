@@ -13,30 +13,29 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 public class ProductManager {
 
-	// public UserApplication insert(UserApplication au)
-	// public UserApplication login(String email, String password)
-	// public UserApplication update(UserApplciaation au)
-	// public boolean delete(UserApplication au)
-	// Only for the Admin Project
-	// public List<ApplicationUser> findAll()
 
-	private EntityManager em;
-	private EntityTransaction et;
-
-	public ProductManager() {
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("EShop");
-		em = emf.createEntityManager();
-		et = em.getTransaction();
-	}
+	public ProductManager() {}
 
 	public Product findById(String id) {
-		Product p = em.find(Product.class, Integer.parseInt(id));
-		return p;
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products").path(id);
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		int status = response.getStatus();
+		if (status == 200) {
+			return response.readEntity(Product.class);
+		}
+		return null;
 	}
 	
 	public List<Product> search(String term) {

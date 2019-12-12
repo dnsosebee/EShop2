@@ -38,28 +38,4 @@ public class OrderManager {
 		
 	}
 
-	public OrderProductPK insert(OrderProductPK pk) {
-		
-		et.begin();
-		
-		em.persist(pk);
-		
-		et.commit();
-		
-		return pk;
-		
-	}
-
-	public OrderProduct insert(OrderProduct op) {
-	
-	et.begin();
-	
-	em.persist(op);
-	
-	et.commit();
-	
-	return op;
-	
-}
-
 }

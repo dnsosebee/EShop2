@@ -3,7 +3,7 @@
 
 <jsp:include page="header.jsp"/>
 
-<jsp:useBean id="messages" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.EShopMessage>"/>
+<jsp:useBean id="messages" scope="request" type="java.util.ArrayList<es.uc3m.eshop.model.Message>"/>
 
 	<!-- BREADCRUMB -->
 	<div id="breadcrumb">
@@ -22,28 +22,19 @@
 <br>
 <span style="font-style:italic">Click on a message to read its content or to respond.</span>
 <br>
-<% for (EShopMessage m: messages) { %>
+<% for (Message m: messages) { %>
 	<% StringBuilder sb = new StringBuilder(); %>
 	<% sb.append("From "); %>
-	<% sb.append(m.getSenderEmail()); %>
-	<% sb.append(" ("); %>
-	<% if (m.getUserType() == 0) { %>
-		<% sb.append("shopper"); %>
-	<% } else if (m.getUserType() == 1) { %>
-		<% sb.append("seller"); %>
-	<% } else if (m.getUserType() == 2) { %>
-		<% sb.append("administrator"); %>
-	<% } %>
-	<% sb.append("): "); %>
-	<% sb.append(m.getTitle()); %>
+	<% sb.append(m.getSender()); %>
+	<% sb.append(": "); %>
+	<% sb.append(m.getSubject()); %>
 	<br>
 	<form action="message.html" method="POST">
-	<input type="hidden" name="title" value="<%= m.getTitle() %>" />
-	<input type="hidden" name="message" value="<%= m.getMessage() %>" />
+	<input type="hidden" name="title" value="<%= m.getSubject() %>" />
+	<input type="hidden" name="message" value="<%= m.getBody() %>" />
 	<input type="hidden" name="isReply" value=" " />
-	<input type="hidden" name="email" value="<%= m.getSenderEmail() %>" />
-	<input type="hidden" name="recipientEmail" value="<%= m.getSenderEmail() %>" />
-	<input type="hidden" name="userType" value="<%= m.getUserType() %>" />
+	<input type="hidden" name="email" value="<%= m.getSender() %>" />
+	<input type="hidden" name="recipientEmail" value="<%= m.getRecipient() %>" />
 	<input type="submit" value="<%= sb.toString() %>">
 	</form>
 <% } %>

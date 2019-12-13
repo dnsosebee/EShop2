@@ -1,18 +1,8 @@
 package es.uc3m.eshop.handler;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import es.uc3m.eshop.model.*;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.MessageProducer;
-import javax.jms.Queue;
-import javax.jms.Session;
-import javax.jms.ObjectMessage;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,60 +19,18 @@ public class SendRequestHandler implements es.uc3m.eshop.controlservlet.RequestH
 			return "login.html";
 		}
 		
-		
-		String title = request.getParameter("title");
-		String message = request.getParameter("message");
+		String subject = request.getParameter("title");
+		String body = request.getParameter("message");
 		String senderEmail = request.getParameter("senderEmail");
-		int userType = Integer.parseInt(request.getParameter("userType"));
+		String recipientEmail = request.getParameter("recipientEmail");
 		
-		Context context;
-		try {
-			context = new InitialContext();
-			ConnectionFactory factory = (ConnectionFactory) context.lookup("confact");
-			Queue queue = (Queue) context.lookup("xxx");
-		    Connection con = factory.createConnection();
-		    Session ses = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			MessageProducer prod = ses.createProducer(queue);
-			ObjectMessage mess = ses.createObjectMessage();
-			if (request.getParameter("allUsers") != null) {
-				mess.setBooleanProperty("allUsers",true);
-				if (((ApplicationUser)session.getAttribute("user")).getRole() == 0) {
-					prod.close();
-					ses.close();
-					con.close();
-					return "error.jsp";
-				}
-			}
-			if (request.getParameter("allSellers") != null) {
-				if (((ApplicationUser)session.getAttribute("user")).getRole() != 2) {
-					prod.close();
-					ses.close();
-					con.close();
-					return "error.jsp";
-				}
-				mess.setBooleanProperty("allSellers",true);
-			}
-			if (request.getParameter("recipientEmail") != null) {
-				//mess.setBooleanProperty(request.getParameter("recipientEmail"),true);
-				mess.setStringProperty("recipientEmail", request.getParameter("recipientEmail"));
-			}
-			
-			
-			EShopMessage messageObject = new EShopMessage();
-			messageObject.setMessage(message);
-			messageObject.setTitle(title);
-			messageObject.setSenderEmail(senderEmail);
-			messageObject.setUserType(userType);
-			
-			mess.setObject(messageObject);
-			prod.send(mess);
-			prod.close();
-			ses.close();
-			con.close();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		Message message = new Message();
+		message.setBody(body);
+		message.setSubject(subject);
+		message.setSender(senderEmail);
+		message.setRecipient(recipientEmail);
+		MessageManager messageManager = new MessageManager();
+		messageManager.sendMessage(message);
 
 		return "inbox.html";
 	}

@@ -1,30 +1,20 @@
 package es.uc3m.eshop.model;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.HashMap;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
 public class ProductManager {
-
-
-	public ProductManager() {}
 
 	public Product findById(String id) {
 		Client client = ClientBuilder.newClient();
@@ -37,103 +27,96 @@ public class ProductManager {
 		}
 		return null;
 	}
-	
-	public List<Product> search(String term) {
-		Query query = em.createQuery("SELECT p FROM Product p WHERE p.name REGEXP '" + term + "'");
-		List<Product> products = new ArrayList<Product>();
-		Set<Product> uniques = new HashSet<Product>();
-		for (Object product:query.getResultList()) {
-			uniques.add((Product) product);
+
+	public List<Product> search(Integer min, Integer max, String keyword) {
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products").queryParam("min", min)
+				.queryParam("max", max).queryParam("searchTerm", keyword);
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		int status = response.getStatus();
+		if (status == 200) {
+			return response.readEntity(new GenericType<List<Product>>() {
+			});
 		}
-		Query query2 = em.createQuery("SELECT p FROM Product p WHERE p.description REGEXP '" + term + "'");
-		for (Object product:query2.getResultList()) {
-			uniques.add((Product) product);
-		}
-		for (Product p: uniques) {
-			products.add(p);
-		}
-		return products;
+		return null;
 	}
 
 	public Product insert(Product p) {
-
-		et.begin();
-
-		em.persist(p);
-
-		et.commit();
-
-		return p;
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products");
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.post(Entity.entity(p, MediaType.APPLICATION_JSON));
+		int status = response.getStatus();
+		if (status == 201) {
+			return response.readEntity(Product.class);
+		}
+		return null;
 	}
 
 	public List<Product> findAll() {
-
-		Query query = em.createQuery("SELECT p FROM Product p");
-		List<Product> products = new ArrayList<Product>();
-		for (Object product : query.getResultList()) {
-			products.add((Product) product);
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products");
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		int status = response.getStatus();
+		if (status == 200) {
+			return response.readEntity(new GenericType<List<Product>>() {
+			});
 		}
-
-		return products;
+		return null;
 	}
 
 	public List<Product> findAllForSeller(HttpSession session) {
 
 		ApplicationUser au = (ApplicationUser) session.getAttribute("user");
 		String userEmail = au.getEmail();
-
-//		Query query = em.createQuery("SELECT p FROM Product p WHERE seller = " + userEmail);
-		Query query = em.createQuery("SELECT p FROM Product p");
-
-		List<Product> products = new ArrayList<Product>();
-		for (Object product : query.getResultList()) {
-
-			if (((Product) product).getSeller().contentEquals(userEmail)) {
-				products.add((Product) product);
-			}
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products").queryParam("seller",
+				userEmail);
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		int status = response.getStatus();
+		if (status == 200) {
+			return response.readEntity(new GenericType<List<Product>>() {
+			});
 		}
-
-		return products;
+		return null;
 	}
-	
+
 	public Product update(Product pr) {
-		et.begin();
-
-		Product product = findById(String.valueOf(pr.getIdProduct()));
-
-		product.setName(pr.getName());
-		product.setDescription(pr.getDescription());
-		product.setPrice(pr.getPrice());
-		product.setStock(pr.getStock());
-
-		em.merge(pr);
-		et.commit();
-		return product;
-	}
-	
-	public boolean delete(Product pr) {
-		
-		Product product = em.find(Product.class, pr.getIdProduct());
-		
-		if(product == null) {
-			return false;
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products");
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.put(Entity.entity(pr, MediaType.APPLICATION_JSON));
+		int status = response.getStatus();
+		if (status == 200) {
+			return response.readEntity(Product.class);
 		}
-		et.begin();
-		em.remove(product);
-		et.commit();
-		return true;
-		
+		return null;
 	}
-	
-	public double calculateCart(HashMap<Product, Integer> cart)
-	{
+
+	public boolean delete(Product pr) {
+		Client client = ClientBuilder.newClient();
+		WebTarget webResource = client.target("https://localhost:15802").path("products")
+				.path(((Integer) pr.getIdProduct()).toString());
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.delete();
+		int status = response.getStatus();
+		if (status == 200) {
+			return true;
+		}
+		return false;
+
+	}
+
+	public double calculateCart(HashMap<Product, Integer> cart) {
 		double cartCost = 0;
-		for(Map.Entry<Product, Integer> entry : cart.entrySet()) {
-			
+		for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
+
 			cartCost += entry.getKey().getPrice() * entry.getValue();
 		}
-				
-		
+
 		return Math.round(cartCost * 100.0) / 100.0;
 	}
 }

@@ -16,6 +16,8 @@ public class IndexRequestHandler implements es.uc3m.eshop.controlservlet.Request
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		System.out.println("INDEX REQUEST");
+		
 		ProductManager pm = new ProductManager();
 		
 		List<Product> list = pm.findAll();

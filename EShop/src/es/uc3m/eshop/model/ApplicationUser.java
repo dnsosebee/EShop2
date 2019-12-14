@@ -27,10 +27,10 @@ public class ApplicationUser implements Serializable {
 	private String surname;
 
 	//bi-directional many-to-one association to OldProduct
-	private List<OldProduct> oldProducts;
-
-	//bi-directional many-to-many association to Product
-	private List<Product> products;
+//	private List<OldProduct> oldProducts;
+//
+//	//bi-directional many-to-many association to Product
+//	private List<Product> products;
 
 	public ApplicationUser() {
 	}
@@ -83,34 +83,34 @@ public class ApplicationUser implements Serializable {
 		this.surname = surname;
 	}
 
-	public List<OldProduct> getOldProducts() {
-		return this.oldProducts;
-	}
-
-	public void setOldProducts(List<OldProduct> oldProducts) {
-		this.oldProducts = oldProducts;
-	}
-
-	public OldProduct addOldProduct(OldProduct oldProduct) {
-		getOldProducts().add(oldProduct);
-		oldProduct.setApplicationUser(this);
-
-		return oldProduct;
-	}
-
-	public OldProduct removeOldProduct(OldProduct oldProduct) {
-		getOldProducts().remove(oldProduct);
-		oldProduct.setApplicationUser(null);
-
-		return oldProduct;
-	}
-
-	public List<Product> getProducts() {
-		return this.products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+//	public List<OldProduct> getOldProducts() {
+//		return this.oldProducts;
+//	}
+//
+//	public void setOldProducts(List<OldProduct> oldProducts) {
+//		this.oldProducts = oldProducts;
+//	}
+//
+//	public OldProduct addOldProduct(OldProduct oldProduct) {
+//		getOldProducts().add(oldProduct);
+//		oldProduct.setApplicationUser(this);
+//
+//		return oldProduct;
+//	}
+//
+//	public OldProduct removeOldProduct(OldProduct oldProduct) {
+//		getOldProducts().remove(oldProduct);
+//		oldProduct.setApplicationUser(null);
+//
+//		return oldProduct;
+//	}
+//
+//	public List<Product> getProducts() {
+//		return this.products;
+//	}
+//
+//	public void setProducts(List<Product> products) {
+//		this.products = products;
+//	}
 
 }

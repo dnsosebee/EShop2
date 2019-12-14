@@ -20,7 +20,6 @@ public class LoginRequestHandler implements es.uc3m.eshop.controlservlet.Request
 		if(request.getParameter("email")!=null) {
 			
 			
-			
 			ApplicationUserManager aum = new ApplicationUserManager();
 			ApplicationUser au = aum.login(request.getParameter("email"),request.getParameter("password"));
 			if (au == null) {

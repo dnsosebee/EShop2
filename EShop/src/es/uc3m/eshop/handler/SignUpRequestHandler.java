@@ -13,6 +13,9 @@ public class SignUpRequestHandler implements es.uc3m.eshop.controlservlet.Reques
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("SIGN UP REQUEST MANAGER");
+		
 		if(request.getParameter("email")!=null) {
 			
 			ApplicationUser au = new ApplicationUser();

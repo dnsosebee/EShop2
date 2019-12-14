@@ -14,11 +14,14 @@ import es.uc3m.eshop.model.ApplicationUserManager;
 import es.uc3m.eshop.model.Product;
 
 public class WishlistRequestHandler implements es.uc3m.eshop.controlservlet.RequestHandler {
-
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+		System.out.println("WISHLIST REQUEST HANDLER");
+		
+		
 		ApplicationUser auxiliar, au;
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user") == null) {
@@ -32,7 +35,9 @@ public class WishlistRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 			return "error.jsp";
 		}
 		
-		List<Product> list = au.getProducts();
+		
+		
+		List<Product> list = aum.getUserWishlist(au);
 		request.setAttribute("products", list);
 
 		return "wishlist.jsp";	

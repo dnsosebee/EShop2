@@ -8,8 +8,6 @@ import javax.persistence.*;
  * The persistent class for the oldProduct database table.
  * 
  */
-@Entity
-@NamedQuery(name="OldProduct.findAll", query="SELECT o FROM OldProduct o")
 public class OldProduct implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,13 +25,13 @@ public class OldProduct implements Serializable {
 	private int units;
 
 	//bi-directional many-to-one association to ApplicationUser
-	@ManyToOne
-	@JoinColumn(name="seller")
+//	@ManyToOne
+//	@JoinColumn(name="seller")
 	private ApplicationUser applicationUser;
 
 	//bi-directional many-to-one association to MyOrder
-	@ManyToOne
-	@JoinColumn(name="myOrder")
+//	@ManyToOne
+//	@JoinColumn(name="myOrder")
 	private MyOrder myOrderBean;
 
 	public OldProduct() {

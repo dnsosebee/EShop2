@@ -14,7 +14,6 @@ import javax.json.bind.annotation.JsonbTypeSerializer;
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	
 	private int idProduct;
 
 	private String description;
@@ -73,6 +72,12 @@ public class Product implements Serializable {
 
 	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
+	}
+	
+	
+	public String getImageString()
+	{
+		return "THIS IS NOT DONE";
 	}
 
 	public String getSeller() {

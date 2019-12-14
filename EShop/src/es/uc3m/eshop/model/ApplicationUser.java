@@ -9,12 +9,11 @@ import java.util.List;
  * The persistent class for the applicationUser database table.
  * 
  */
-@Entity
-@NamedQuery(name="ApplicationUser.findAll", query="SELECT a FROM ApplicationUser a")
+//@NamedQuery(name="ApplicationUser.findAll", query="SELECT a FROM ApplicationUser a")
 public class ApplicationUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	
 	private String email;
 
 	private String address;
@@ -28,11 +27,9 @@ public class ApplicationUser implements Serializable {
 	private String surname;
 
 	//bi-directional many-to-one association to OldProduct
-	@OneToMany(mappedBy="applicationUser")
 	private List<OldProduct> oldProducts;
 
 	//bi-directional many-to-many association to Product
-	@ManyToMany(mappedBy="applicationUsers")
 	private List<Product> products;
 
 	public ApplicationUser() {

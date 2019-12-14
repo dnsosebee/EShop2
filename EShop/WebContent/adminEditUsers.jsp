@@ -32,10 +32,10 @@
 	</tr>
 	
 	<%
-			List<es.uc3m.ctw.model.Applicationuser> allUsers = (List<es.uc3m.ctw.model.Applicationuser>) request.getAttribute("allUsers");
+			List<es.uc3m.eshop.model.ApplicationUser> allUsers = (List<es.uc3m.eshop.model.ApplicationUser>) request.getAttribute("allUsers");
 		%>
 	<%
-		for(es.uc3m.ctw.model.Applicationuser user: allUsers) {
+		for(es.uc3m.eshop.model.ApplicationUser user: allUsers) {
 	%>
 	<tr>
 		<td><%=user.getEmail()%></td>

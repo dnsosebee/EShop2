@@ -22,7 +22,7 @@
 
 
 	<%
-		es.uc3m.ctw.model.Product editProduct = (es.uc3m.ctw.model.Product) request.getAttribute("productToEdit");
+		es.uc3m.eshop.model.Product editProduct = (es.uc3m.eshop.model.Product) request.getAttribute("productToEdit");
 	%>
 	<tr>
 	<form method = "post" action = "editProduct.html" enctype = "multipart/form-data">

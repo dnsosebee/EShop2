@@ -20,7 +20,7 @@
 <h1>Edit User</h1>
 
 <%
-	es.uc3m.ctw.model.Applicationuser au = (es.uc3m.ctw.model.Applicationuser) session.getAttribute("userToEdit");
+	es.uc3m.eshop.model.ApplicationUser au = (es.uc3m.eshop.model.ApplicationUser) session.getAttribute("userToEdit");
 %>
 
 

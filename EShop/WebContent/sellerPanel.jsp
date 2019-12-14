@@ -3,7 +3,7 @@
 
 
 <%
-	es.uc3m.ctw.model.Applicationuser au = (es.uc3m.ctw.model.Applicationuser) session.getAttribute("user");
+	es.uc3m.eshop.model.ApplicationUser au = (es.uc3m.eshop.model.ApplicationUser) session.getAttribute("user");
 %>
 
 <jsp:include page="header.jsp" />

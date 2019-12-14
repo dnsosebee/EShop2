@@ -4,7 +4,7 @@
 <jsp:include page="header.jsp"/>
 
 
-<jsp:useBean id="orders" scope="request" type="java.util.List<es.uc3m.es.uc3m.ctw.model.MyOrder.uc3m.eshop.model.MyOrder>"/>
+<jsp:useBean id="orders" scope="request" type="java.util.List<es.uc3m.eshop.model.MyOrder>"/>
 <% final int ROW_MAX_ITEMS = 4; %>
 
 	<!-- BREADCRUMB -->

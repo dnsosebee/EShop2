@@ -56,11 +56,11 @@
 </head>
 
 <%
-	Applicationuser.uc3m.ctw.model.ApplicationUser.uc3m.eshop.model.ApplicationUser au = new Applicationuser.uc3m.ctw.model.ApplicationUser.uc3m.eshop.model.ApplicationUser();
+ 	es.uc3m.eshop.model.ApplicationUser au = new es.uc3m.eshop.model.ApplicationUser();
 	boolean hasUser = false;
 	if (session.getAttribute("user") != null) {
 		hasUser = true;
-		au = (Applicationuser.uc3m.ctw.model.ApplicationUser.uc3m.eshop.model.ApplicationUser) session.getAttribute("user");
+		au = (es.uc3m.eshop.model.ApplicationUser) session.getAttribute("user");
 	}
 %>
 
@@ -141,7 +141,7 @@
 									<ul class="custom-menu">
 										<li><a href="userProfile.html"><i class="fa fa-user-o"></i> Dashboard</a></li>
 										<%
-											if (((Applicationuser.uc3m.ctw.model.ApplicationUser.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) {
+											if (((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) {
 										%>
 											<li><a href="wishlist.html"><i class="fa fa-heart-o"></i> Wishlist</a></li>
 											<li><a href="orders.html"><i class="fa fa-check"></i> Orders</a></li>
@@ -161,7 +161,7 @@
 						<!-- /Account -->
 						<!-- Cart -->
 						<%
-							if (session.getAttribute("user") != null && ((Applicationuser.uc3m.ctw.model.ApplicationUser.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) {
+							if (session.getAttribute("user") != null && ((es.uc3m.eshop.model.ApplicationUser)session.getAttribute("user")).getRole() == 0) {
 						%>
 						<li class="header-cart dropdown default-dropdown">
 							<div class="shopping-cart-btns">

@@ -33,10 +33,10 @@
 	</tr>
 	
 	<%
-			List<es.uc3m.ctw.model.Product> allProducts = (List<es.uc3m.ctw.model.Product>) request.getAttribute("allProducts");
+			List<es.uc3m.eshop.model.Product> allProducts = (List<es.uc3m.eshop.model.Product>) request.getAttribute("allProducts");
 		%>
 	<%
-		for(es.uc3m.ctw.model.Product product: allProducts) {
+		for(es.uc3m.eshop.model.Product product: allProducts) {
 	%>
 	<tr>
 		<td><%=product.getIdProduct()%></td>

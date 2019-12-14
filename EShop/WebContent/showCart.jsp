@@ -24,7 +24,7 @@
 <br>
 
 <%
-	HashMap<es.uc3m.ctw.model.Product, Integer> cartItems = (HashMap<es.uc3m.ctw.model.Product, Integer>) session.getAttribute("cartItems");
+	HashMap<es.uc3m.eshop.model.Product, Integer> cartItems = (HashMap<es.uc3m.eshop.model.Product, Integer>) session.getAttribute("cartItems");
 %>
 
 
@@ -41,7 +41,7 @@
 
 
 <%
-	for(Map.Entry<es.uc3m.ctw.model.Product, Integer> entry : cartItems.entrySet()) {
+	for(Map.Entry<es.uc3m.eshop.model.Product, Integer> entry : cartItems.entrySet()) {
 %>
 <tr>
 <td> <img src = "<%=entry.getKey().getImageString() %>" height = 75px width = 75px> </td>

@@ -22,6 +22,29 @@
 <p>This order was made on <%=order.getDate().toString() %>.</p>
 <br>
 <br>
+<table>
+<tr>
+<th>Product Image</th>
+<th>Product Name</th>
+<th>Price</th>
+<th>Quantity</th>
+</tr>
+
+
+
+<%for(OldProduct op : order.getOldProducts()) { %>
+<tr>
+<td> <img src = "<%=op.getImageString() %>" height = 75px width = 75px> </td>
+<td> <%=op.getName() %> </td>
+<td> <%=op.getPricePerUnit() %></td>
+<td> <%=op.getUnits() %></td>
+</tr>
+
+<% } %>
+
+</table>
+
+<br>
 
 <h4>Total cost of this order: $<%= order.getTotal() %></h4>
 

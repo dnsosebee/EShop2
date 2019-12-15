@@ -20,7 +20,7 @@ public class OldProduct implements Serializable {
 
 	private float pricePerUnit;
 
-	private Object productImage;
+	private byte[] productImage;
 
 	private int units;
 
@@ -69,11 +69,11 @@ public class OldProduct implements Serializable {
 		this.pricePerUnit = pricePerUnit;
 	}
 
-	public Object getProductImage() {
+	public byte[] getProductImage() {
 		return this.productImage;
 	}
 
-	public void setProductImage(Object productImage) {
+	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
 	}
 
@@ -99,6 +99,13 @@ public class OldProduct implements Serializable {
 
 	public void setMyOrderBean(MyOrder myOrderBean) {
 		this.myOrderBean = myOrderBean;
+	}
+	
+	public String getImageString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("data:image/png;base64,");
+		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(this.getProductImage(), false)));
+		return sb.toString();	
 	}
 
 }

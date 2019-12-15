@@ -128,7 +128,7 @@ public class EshopUserServicesController {
 		List wishlistProducts = wishListUser.getProducts();
 		return new ResponseEntity<List<Product>>(wishlistProducts, HttpStatus.OK);
 	}
-
+/**
 	
 	//add item to wishlist
 	@RequestMapping(value = "users/{email}/wishlist/{id}", method = RequestMethod.GET)
@@ -148,4 +148,6 @@ public class EshopUserServicesController {
 	///remove item from wishlist
 	
 	
+
+**/
 }

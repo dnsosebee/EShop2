@@ -1,8 +1,5 @@
 package es.uc3m.eshop.handler;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import es.uc3m.eshop.model.*;
 import javax.servlet.ServletException;
@@ -28,15 +25,11 @@ public class OrderRequestHandler implements es.uc3m.eshop.controlservlet.Request
 		if (request.getParameter("id") == null) {
 			return "error.jsp";
 		}
-		MyOrder mo = om.findById(Integer.parseInt(request.getParameter(("id"))));
+		MyOrder mo = om.findById(request.getParameter(("id")));
 		if (mo == null) {
 			return "error.jsp";
 		}
 		
-		ProductManager pm = new ProductManager();
-
-		request.setAttribute("order", mo);
-		request.setAttribute("order", mo);
 		request.setAttribute("order", mo);
 		return "order.jsp";
 	}

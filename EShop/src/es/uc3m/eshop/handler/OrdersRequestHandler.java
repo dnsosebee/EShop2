@@ -28,12 +28,11 @@ public class OrdersRequestHandler implements es.uc3m.eshop.controlservlet.Reques
 			return "error.jsp";
 		}
 		
-		List<MyOrder> list = au.getMyOrders();
-		request.setAttribute("orders", list);
+		OrderManager om = new OrderManager();
 		
-		for (MyOrder mo : list) {
-			System.out.println(mo.getIdOrder());
-		}
+		List<MyOrder> list = om.getUserOrders(au.getEmail());
+		request.setAttribute("orders", list);
+
 		return "orders.jsp";
 	}
 

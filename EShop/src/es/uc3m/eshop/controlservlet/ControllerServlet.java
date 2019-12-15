@@ -3,15 +3,12 @@ package es.uc3m.eshop.controlservlet;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.uc3m.eshop.gateway.Gateway;
 import es.uc3m.eshop.handler.*;
 
 import java.util.Map;
@@ -26,7 +23,6 @@ public class ControllerServlet extends HttpServlet {
        
 	// Hash table of RequestHandler instances, keyed by request URL
 	  private Map<String,RequestHandler> handlerHash = new HashMap<String,RequestHandler>();
-	  private Gateway gateway;
 	  
 	  // Initialize mappings: not implemented here
 	  public void init() throws ServletException {

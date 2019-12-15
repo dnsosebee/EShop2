@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,10 +29,14 @@ public class OrderController {
 
 	@RequestMapping(value = "orders", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<List<Myorder>> findAll(@RequestParam String owner) {
-
 		List<Myorder> list = myOrderDAO.findByOwner(owner);
-
 		return new ResponseEntity<List<Myorder>>(list, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "orders/{id}", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<Myorder> findById(@PathVariable int id) {
+		Myorder order = myOrderDAO.findById(id).orElse(null);
+		return new ResponseEntity<Myorder>(order, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "orders", method = RequestMethod.POST)

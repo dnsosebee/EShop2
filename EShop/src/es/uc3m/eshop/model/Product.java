@@ -8,7 +8,6 @@ import javax.json.bind.annotation.JsonbTypeSerializer;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.StringUtils;
 
-
 /**
  * The persistent class for the product database table.
  * 

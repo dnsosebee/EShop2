@@ -3,6 +3,9 @@ package es.uc3m.eshop.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
+
 
 /**
  * The persistent class for the oldProduct database table.

@@ -36,10 +36,13 @@ public class EshopBankServicesController {
 		String numberValidationRegex = "^[0-9]{16}$";
 		String cardExpiryRegex = "[0-1]{1}[0-9]{1}\\/[0-9]{2}";
 		String cardSecurityRegex = "[0-9]{3}";
+		
+		
+		String cardNumber = verification.getCardNumber().replaceAll("\\s","");
 
 
-		if (	Integer.parseInt(verification.getCardNumber())%4 == 0 &&
-				verification.getCardNumber().matches(numberValidationRegex) && 
+		if (	Integer.parseInt(cardNumber)% 4 == 0 &&
+				cardNumber.matches(numberValidationRegex) && 
 				verification.getCardExpiry().matches(cardExpiryRegex) && 
 				verification.getCardSecurity().matches(cardSecurityRegex)				)
 		{

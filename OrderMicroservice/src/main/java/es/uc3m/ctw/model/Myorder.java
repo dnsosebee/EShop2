@@ -21,8 +21,7 @@ public class Myorder implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idOrder;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date date;
+	private String date;
 
 	private String owner;
 
@@ -43,11 +42,11 @@ public class Myorder implements Serializable {
 		this.idOrder = idOrder;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return this.date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

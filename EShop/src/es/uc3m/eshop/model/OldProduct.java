@@ -30,7 +30,7 @@ public class OldProduct implements Serializable {
 	//bi-directional many-to-one association to ApplicationUser
 //	@ManyToOne
 //	@JoinColumn(name="seller")
-	private ApplicationUser applicationUser;
+	private String applicationUser;
 
 	//bi-directional many-to-one association to MyOrder
 //	@ManyToOne
@@ -88,11 +88,11 @@ public class OldProduct implements Serializable {
 		this.units = units;
 	}
 
-	public ApplicationUser getApplicationUser() {
+	public String getApplicationUser() {
 		return this.applicationUser;
 	}
 
-	public void setApplicationUser(ApplicationUser applicationUser) {
+	public void setApplicationUser(String applicationUser) {
 		this.applicationUser = applicationUser;
 	}
 

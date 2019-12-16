@@ -18,9 +18,8 @@ public class MyOrder implements Serializable {
 
 	@Id
 	private int idOrder;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date date;
+	
+	private String date;
 
 	private String owner;
 
@@ -41,11 +40,11 @@ public class MyOrder implements Serializable {
 		this.idOrder = idOrder;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return this.date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

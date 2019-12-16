@@ -9,11 +9,9 @@ import java.util.List;
  * The persistent class for the applicationUser database table.
  * 
  */
-//@NamedQuery(name="ApplicationUser.findAll", query="SELECT a FROM ApplicationUser a")
 public class ApplicationUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	
 	private String email;
 
 	private String address;

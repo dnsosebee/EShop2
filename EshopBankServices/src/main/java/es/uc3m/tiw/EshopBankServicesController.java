@@ -41,7 +41,7 @@ public class EshopBankServicesController {
 		String cardNumber = verification.getCardNumber().replaceAll("\\s","");
 
 
-		if (	Integer.parseInt(cardNumber)% 4 == 0 &&
+		if (	Integer.parseInt(cardNumber.substring(cardNumber.length() - 2, cardNumber.length()))% 4 == 0 &&
 				cardNumber.matches(numberValidationRegex) && 
 				verification.getCardExpiry().matches(cardExpiryRegex) && 
 				verification.getCardSecurity().matches(cardSecurityRegex)				)

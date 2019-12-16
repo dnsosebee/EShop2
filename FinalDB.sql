@@ -63,13 +63,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `ctw`.`myOrder` (
   `idOrder` INT(11) NOT NULL AUTO_INCREMENT,
   `owner` VARCHAR(255) NOT NULL,
-  `date` DATETIME NOT NULL,
+  `date`  VARCHAR(255) NOT NULL,
   `total` DECIMAL(15,0) NOT NULL,
   PRIMARY KEY (`idOrder`),
-  INDEX `owner_of_order_idx` (`owner` ASC) VISIBLE,
-  CONSTRAINT `owner_of_order`
-    FOREIGN KEY (`owner`)
-    REFERENCES `ctw`.`applicationuser` (`email`))
+  INDEX `owner_of_order_idx` (`owner` ASC) VISIBLE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4

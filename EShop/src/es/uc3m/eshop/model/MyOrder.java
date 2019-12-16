@@ -25,8 +25,6 @@ public class MyOrder implements Serializable {
 
 	private BigDecimal total;
 
-	//bi-directional many-to-one association to OldProduct
-	@OneToMany(mappedBy="myOrderBean")
 	private List<OldProduct> oldProducts;
 
 	public MyOrder() {
@@ -74,14 +72,11 @@ public class MyOrder implements Serializable {
 
 	public OldProduct addOldProduct(OldProduct oldProduct) {
 		getOldProducts().add(oldProduct);
-		oldProduct.setMyOrderBean(this);
-
 		return oldProduct;
 	}
 
 	public OldProduct removeOldProduct(OldProduct oldProduct) {
 		getOldProducts().remove(oldProduct);
-		oldProduct.setMyOrderBean(null);
 
 		return oldProduct;
 	}

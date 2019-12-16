@@ -27,15 +27,7 @@ public class OldProduct implements Serializable {
 
 	private int units;
 
-	//bi-directional many-to-one association to ApplicationUser
-//	@ManyToOne
-//	@JoinColumn(name="seller")
 	private String applicationUser;
-
-	//bi-directional many-to-one association to MyOrder
-//	@ManyToOne
-//	@JoinColumn(name="myOrder")
-	private MyOrder myOrderBean;
 
 	public OldProduct() {
 	}
@@ -94,14 +86,6 @@ public class OldProduct implements Serializable {
 
 	public void setApplicationUser(String applicationUser) {
 		this.applicationUser = applicationUser;
-	}
-
-	public MyOrder getMyOrderBean() {
-		return this.myOrderBean;
-	}
-
-	public void setMyOrderBean(MyOrder myOrderBean) {
-		this.myOrderBean = myOrderBean;
 	}
 	
 	public String getImageString() {

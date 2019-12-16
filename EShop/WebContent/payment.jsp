@@ -82,43 +82,24 @@
 		</form>
 		<!-- row -->
 		<div class="row">
-			<form id="checkout-form" class="clearfix">
-				<div class="col-md-6">
-					<div class="billing-details">
-						<div class="section-title">
-							<h3 class="title">Payment Details</h3>
-						</div>
-						<div class="form-group">
-							<input class="input" type="text" name="paymentFirstName"
-								placeholder="First Name">
-						</div>
-						<div class="form-group">
-							<input class="input" type="text" name="paymentLastName"
-								placeholder="Last Name">
-						</div>
-						<div class="form-group">
-							<input class="input" type="email" name="cardNumber"
-								placeholder="Credit Card Number">
-						</div>
-						<div class="form-group">
-							<input class="input" type="text" name="cardExpiry"
-								placeholder="Credit Card Expiry mm/yy">
-						</div>
-						<div class="form-group">
-							<input class="input" type="text" name="cardSecurity"
-								placeholder="Credit Card Security">
-						</div>
-					</div>
-				</div>
-		</div>
-		<div class="pull-right">
-					<button class="primary-btn">
-						<a href="orderThanks.html">Place Order</a>
-					</button>
-				</div>
+		
+<form action="orderThanks.html" method="POST" >			
+<label>First Name: <input type="text" required name="name"></label>
+<br>
 
+<label>Last Name: <input type="text" required name="surname"></label>
+<br>
 
-	</div>
+<label>Credit Card Number: <input type="number" required name="creditCard"></label>
+<br>
+
+<label>Expiration Date: <input type="text" required name="expiry"></label>
+<br>
+
+<label>CVV: <input type="number" required name="cvv"></label>
+<br>
+<input type="submit" value="Submit">
+
 	<!-- /row -->
 </div>
 <!-- /container -->

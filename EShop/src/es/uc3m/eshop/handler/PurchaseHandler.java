@@ -1,11 +1,13 @@
 package es.uc3m.eshop.handler;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import es.uc3m.eshop.model.*;
@@ -40,33 +42,21 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-	
-		
-		
-		System.out.println("HANDLING PURCHASE");
-		
-		
-		
 		HttpSession session = request.getSession();
-		
-		
-		HashMap<Product, Integer> cartItems = (HashMap<Product, Integer>) session.getAttribute("cartItems");
-		String cardNumber = request.getParameter("paymentCardNumber");
-		double purchasePrice = (double) session.getAttribute("cartCost");
+		String cardNumber = request.getParameter("creditCard");
 		ApplicationUser purchaseUser = (ApplicationUser) session.getAttribute("user");
-		Date purchaseDate = new Date();
 		
 		
 		System.out.println("ADDING TO OBJECT");
 		
-		BankVerification verification = null;
+		BankVerification verification = new BankVerification();
 		
-		verification.setFirstName(purchaseUser.getName());
-		verification.setLastName(purchaseUser.getSurname());
 		verification.setCardNumber(cardNumber);
-		verification.setCardSecurity(request.getParameter("cardSecurity"));
-		verification.setCardExpiry(request.getParameter("cardExpiry"));
-		verification.setPurchasePrice(purchasePrice);
+		verification.setCardSecurity(request.getParameter("cvv"));
+		verification.setCardExpiry(request.getParameter("expiry"));
+		
+		System.out.println("CARD NUMBER");
+		System.out.println(verification.getCardNumber());
 		
 		System.out.println("TESTING POST TO BANK SERVICE");
 		ClientConfig config = new ClientConfig();
@@ -81,14 +71,43 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 
 		if (status == 200)
 		{
+			OrderManager om = new OrderManager();
+			MyOrder order = new MyOrder();
+			order.setOldProducts(new ArrayList<OldProduct>());
+			
+			for (Map.Entry<Product, Integer> entry : ((HashMap<Product,Integer>)session.getAttribute("cartItems")).entrySet()) {
+				Product p = entry.getKey();
+				
+				p.setStock(p.getStock() - entry.getValue());
+				ProductManager pm = new ProductManager();
+				pm.update(p);
+				
+				OldProduct oldProduct = new OldProduct();
+				oldProduct.setApplicationUser(p.getSeller());
+				oldProduct.setDescription(p.getDescription());
+				oldProduct.setName(p.getName());
+				oldProduct.setPricePerUnit(p.getPrice());
+				oldProduct.setProductImage(p.getProductImage());
+				oldProduct.setUnits(entry.getValue());
+				order.addOldProduct(oldProduct);
+			}
+			
+			order.setDate(new Date().toString());
+			order.setOwner(purchaseUser.getEmail());
+			order.setTotal(new BigDecimal((Double)session.getAttribute("cartCost")));
+			
+			om.insert(order);
+			
+			MessageSender ms = new MessageSender();
+			ms.sendSuccessMessage(purchaseUser.getEmail(), 2);
 			
 			session.setAttribute("cartItems", new HashMap<Product,Integer>());
 			double d = 0;
 			session.setAttribute("cartCost", d);
 			return "orderThanks.jsp";
 		}
-				
-		
-		return "orderFail.jsp";
+		MessageSender ms = new MessageSender();
+		ms.sendFailureMessage(purchaseUser.getEmail());
+		return "orderThanks.jsp";
 	}
 }

@@ -59,72 +59,36 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 		
 		System.out.println("ADDING TO OBJECT");
 		
+		BankVerification verification = null;
 		
-		Purchase purchase = new Purchase();
-		purchase.setAu(purchaseUser);
-		purchase.setCard(cardNumber);
-		purchase.setDate(purchaseDate);
-		purchase.setPrice(purchasePrice);
-		purchase.setProducts(cartItems);
-		
+		verification.setFirstName(purchaseUser.getName());
+		verification.setLastName(purchaseUser.getSurname());
+		verification.setCardNumber(cardNumber);
+		verification.setCardSecurity(request.getParameter("cardSecurity"));
+		verification.setCardExpiry(request.getParameter("cardExpiry"));
+		verification.setPurchasePrice(purchasePrice);
 		
 		System.out.println("TESTING POST TO BANK SERVICE");
 		ClientConfig config = new ClientConfig();
 		Client client = ClientBuilder.newClient(config);
-		WebTarget webtarget = client.target("http://localhost:5810");
-		WebTarget webtargetPath = webtarget.path("purchase");
+		WebTarget webtarget = client.target("http://localhost:15810");
+		WebTarget webtargetPath = webtarget.path("bank");
 		Invocation.Builder invocationBuilder = webtargetPath.request(MediaType.APPLICATION_JSON);
-		Response responseWS = invocationBuilder.post(Entity.entity(purchase, MediaType.APPLICATION_JSON))	;	
+		Response responseWS = invocationBuilder.post(Entity.entity(verification, MediaType.APPLICATION_JSON))	;	
 		int status = responseWS.getStatus();
 		
 		System.out.println("POST STATUS: " + status);
-		
-		
-		System.out.println("FINISHING POST");
-		
-		
-		
-		Context context;
-		
-		System.out.println("TRYING MESSAGE STUFF");
-		try {
-			context = new InitialContext();
-			ConnectionFactory factory = (ConnectionFactory) context.lookup("GatewayConfact");
-			Queue queue = (Queue) context.lookup("GatewayQueue");
-			Connection con = factory.createConnection();
-			Session ses = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			MessageProducer prod = ses.createProducer(queue);
-			ObjectMessage mess = ses.createObjectMessage();
-			
-			
-			
-			mess.setObject(purchase);
-			prod.send(mess);
-			prod.close();
-			ses.close();
-			con.close();
-			
-		} catch (Exception e)
+
+		if (status == 200)
 		{
-			e.printStackTrace();
+			
+			session.setAttribute("cartItems", new HashMap<Product,Integer>());
+			double d = 0;
+			session.setAttribute("cartCost", d);
+			return "orderThanks.jsp";
 		}
+				
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//Gateway g = new Gateway();
-		//g.start();
-		//g.nextMessage();
-		//g.stop();
-		
-		session.setAttribute("cartItems", new HashMap<Product,Integer>());
-		double d = 0;
-		session.setAttribute("cartCost", d);
-		
-		return "orderThanks.jsp";
+		return "orderFail.jsp";
 	}
 }

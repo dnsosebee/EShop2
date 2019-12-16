@@ -14,7 +14,7 @@ public class OrderManager {
 
 	public MyOrder insert(MyOrder order) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15804").path("orders");
+		WebTarget webResource = client.target("http://localhost:15804").path("orders");
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(order, MediaType.APPLICATION_JSON));
 		int status = response.getStatus();
@@ -26,7 +26,7 @@ public class OrderManager {
 
 	public List<MyOrder> getUserOrders(String email) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15804").path("orders").queryParam("owner", email);
+		WebTarget webResource = client.target("http://localhost:15804").path("orders").queryParam("owner", email);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		int status = response.getStatus();
@@ -39,7 +39,7 @@ public class OrderManager {
 
 	public MyOrder findById(String id) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15804").path("orders").path(id);
+		WebTarget webResource = client.target("http://localhost:15804").path("orders").path(id);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		int status = response.getStatus();

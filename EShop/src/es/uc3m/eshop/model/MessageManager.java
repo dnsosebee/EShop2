@@ -15,7 +15,7 @@ public class MessageManager {
 
 	public List<Message> getMessages(String recipient, boolean shopper) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15803").path("messages")
+		WebTarget webResource = client.target("http://localhost:15803").path("messages")
 				.queryParam("recipient", recipient).queryParam("shopper", shopper);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
@@ -29,7 +29,7 @@ public class MessageManager {
 	
 	public Message sendMessage(Message message) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15803").path("messages");
+		WebTarget webResource = client.target("http://localhost:15803").path("messages");
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(message, MediaType.APPLICATION_JSON));
 		int status = response.getStatus();

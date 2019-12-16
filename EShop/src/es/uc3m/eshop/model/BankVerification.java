@@ -1,8 +1,14 @@
 package es.uc3m.eshop.model;
 
-public class BankVerification {
+import java.io.Serializable;
+
+public class BankVerification implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
 	private double purchasePrice;

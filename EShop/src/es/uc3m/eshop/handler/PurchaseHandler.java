@@ -105,9 +105,9 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 			double d = 0;
 			session.setAttribute("cartCost", d);
 			return "orderThanks.jsp";
+			
 		}
 		MessageSender ms = new MessageSender();
 		ms.sendFailureMessage(purchaseUser.getEmail());
 		return "orderThanks.jsp";
-	}
-}
+}}

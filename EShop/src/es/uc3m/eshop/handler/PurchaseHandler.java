@@ -86,8 +86,32 @@ public class PurchaseHandler implements es.uc3m.eshop.controlservlet.RequestHand
 			double d = 0;
 			session.setAttribute("cartCost", d);
 			return "orderThanks.jsp";
+			
 		}
 				
+		System.out.println("TRYING MESSAGE STUFF");
+		
+		Context context;
+		try {
+			context = new InitialContext();
+			ConnectionFactory factory = (ConnectionFactory) context.lookup("GatewayConfact");
+			Queue queue = (Queue) context.lookup("GatewayQueue");
+			Connection con = factory.createConnection();
+			Session ses = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			MessageProducer prod = ses.createProducer(queue);
+			ObjectMessage mess = ses.createObjectMessage();
+
+
+
+			mess.setObject(verification);
+			prod.send(mess);
+			prod.close();
+			ses.close();
+			con.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return "orderFail.jsp";
 	}

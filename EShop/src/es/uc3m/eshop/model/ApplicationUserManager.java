@@ -72,6 +72,10 @@ public class ApplicationUserManager {
 		
 		ApplicationUser au = response.readEntity(ApplicationUser.class);
 		
+		if (au == null) {
+			return null;
+		}
+		
 		if (au.getPassword().contentEquals(password))
 		{
 			return au;

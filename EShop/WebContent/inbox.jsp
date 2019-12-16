@@ -33,8 +33,8 @@
 	<input type="hidden" name="title" value="<%= m.getSubject() %>" />
 	<input type="hidden" name="message" value="<%= m.getBody() %>" />
 	<input type="hidden" name="isReply" value=" " />
-	<input type="hidden" name="email" value="<%= m.getSender() %>" />
-	<input type="hidden" name="recipientEmail" value="<%= m.getRecipient() %>" />
+	<input type="hidden" name="email" value="<%= m.getRecipient() %>" />
+	<input type="hidden" name="recipientEmail" value="<%= m.getSender() %>" />
 	<input type="submit" value="<%= sb.toString() %>">
 	</form>
 <% } %>

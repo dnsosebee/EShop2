@@ -60,15 +60,6 @@
 
 </form>
 
-<br>
-<form action="message.html" method="POST" >
-
-<input type="hidden" name="allSellers" value=" " />
-
-<input type="submit" value="Send a message to all sellers">
-
-</form>
-
 </div>
 
 

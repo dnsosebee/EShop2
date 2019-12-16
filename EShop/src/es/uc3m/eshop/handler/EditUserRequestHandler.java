@@ -68,8 +68,13 @@ public class EditUserRequestHandler implements es.uc3m.eshop.controlservlet.Requ
 			String newAddress = request.getParameter("newAddress");
 			
 			//THERE IS NO FIELDS FOR THESE!?
-//			int role = Integer.parseInt(request.getParameter("role"));
-//			userToEdit.setRole(role);
+			try {
+				Integer role = Integer.parseInt(request.getParameter("role"));
+				if (role != null) {
+					userToEdit.setRole(role);
+				}
+			} catch (Exception e) {}
+			
 
 
 			userToEdit.setName(newName);

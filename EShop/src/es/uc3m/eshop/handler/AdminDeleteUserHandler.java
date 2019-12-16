@@ -16,7 +16,7 @@ public class AdminDeleteUserHandler implements es.uc3m.eshop.controlservlet.Requ
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		System.out.println("here");
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user") == null) {
 			return "login.html";
@@ -24,14 +24,12 @@ public class AdminDeleteUserHandler implements es.uc3m.eshop.controlservlet.Requ
 		if (((ApplicationUser)session.getAttribute("user")).getRole() != 2) {
 			return "error.jsp";
 		}
-		
+		System.out.println("here");
 		System.out.println("ADMIN DELETING");
 		ApplicationUserManager aum = new ApplicationUserManager();
 
 
-		List<ApplicationUser> allUsers = aum.findAll();
 		ApplicationUser removeUser = (ApplicationUser) aum.findByEmail(request.getParameter("adminDeleteUser"));
-		
 		
 		aum.delete(removeUser);
 		

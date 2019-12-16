@@ -53,6 +53,7 @@ public class ControllerServlet extends HttpServlet {
 		  handlerHash.put("/addItemToCart.html", new CartHandler());
 		  handlerHash.put("/adminEditUsers.html", new AdminEditUserHandler());
 		  handlerHash.put("/adminEditProducts.html", new AdminEditProductHandler());
+		  handlerHash.put("/adminDeleteUser.html", new AdminDeleteUserHandler());
 		  handlerHash.put("/orders.html", new OrdersRequestHandler());
 		  handlerHash.put("/order.html", new OrderRequestHandler());
 		  handlerHash.put("/orderThanks.html", new PurchaseHandler());

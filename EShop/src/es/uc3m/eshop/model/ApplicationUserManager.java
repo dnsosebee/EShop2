@@ -45,7 +45,7 @@ public class ApplicationUserManager {
 //		\
 		System.out.println("FINDING BY EMAIL");
 
-		WebTarget webResource = client.target("http://localhost:5812/users/" + email);
+		WebTarget webResource = client.target("http://localhost:15812/users/" + email);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		
 		Response response = invocationBuilder.get();	
@@ -65,7 +65,7 @@ public class ApplicationUserManager {
 		
 		System.out.println("AUM INSERT");
 		
-		WebTarget webResource = client.target("http://localhost:5812/users");
+		WebTarget webResource = client.target("http://localhost:15812/users");
 
 		
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
@@ -95,7 +95,7 @@ public class ApplicationUserManager {
 		
 		System.out.println("AUM LOGIN");
 		
-		WebTarget webResource = client.target("http://localhost:5812/users/" + email);	
+		WebTarget webResource = client.target("http://localhost:15812/users/" + email);	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();	
 		int status = response.getStatus();
@@ -136,7 +136,7 @@ public class ApplicationUserManager {
 		
 		System.out.println("FINDING ALL USERS");
 		
-		WebTarget webResource = client.target("http://localhost:5812/users");	
+		WebTarget webResource = client.target("http://localhost:15812/users");	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();	
 		int status = response.getStatus();
@@ -165,7 +165,7 @@ public class ApplicationUserManager {
 //		 em.merge(user);
 //		et.commit();
 		
-		WebTarget webResource = client.target("http://localhost:5812/users/");	
+		WebTarget webResource = client.target("http://localhost:15812/users/");	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.put(Entity.entity(au, MediaType.APPLICATION_JSON));
 		int status = response.getStatus();
@@ -178,7 +178,7 @@ public class ApplicationUserManager {
 	
 	public List<Product> getUserWishlist(ApplicationUser au)
 	{
-		WebTarget webResource = client.target("http://localhost:5812/users/" + au.getEmail() + "/wishlist");	
+		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail() + "/wishlist");	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		int status = response.getStatus();
@@ -211,7 +211,7 @@ public class ApplicationUserManager {
 //		et.commit();
 //		return true;
 		
-		WebTarget webResource = client.target("http://localhost:5812/users/" + au.getEmail());	
+		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail());	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.delete();
 		int status = response.getStatus();
@@ -237,7 +237,7 @@ public class ApplicationUserManager {
 //			System.out.println("should work");
 //		}
 		
-		ApplicationUser user = findByEmail(au.getEmail());
+		/*ApplicationUser user = findByEmail(au.getEmail());
 		
 		
 		Product p = em.find(Product.class, id);
@@ -248,7 +248,7 @@ public class ApplicationUserManager {
 			em.merge(user);
 			et.commit();
 			System.out.println("should work");
-		}
+		}*/
 	}
 
 	

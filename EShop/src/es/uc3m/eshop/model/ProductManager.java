@@ -18,7 +18,7 @@ public class ProductManager {
 
 	public Product findById(String id) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products").path(id);
+		WebTarget webResource = client.target("http://localhost:15802").path("products").path(id);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		int status = response.getStatus();
@@ -30,7 +30,7 @@ public class ProductManager {
 
 	public List<Product> search(Integer min, Integer max, String keyword) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products").queryParam("min", min)
+		WebTarget webResource = client.target("http://localhost:15802").path("products").queryParam("min", min)
 				.queryParam("max", max).queryParam("searchTerm", keyword);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
@@ -44,7 +44,7 @@ public class ProductManager {
 
 	public Product insert(Product p) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products");
+		WebTarget webResource = client.target("http://localhost:15802").path("products");
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(p, MediaType.APPLICATION_JSON));
 		int status = response.getStatus();
@@ -56,7 +56,7 @@ public class ProductManager {
 
 	public List<Product> findAll() {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products");
+		WebTarget webResource = client.target("http://localhost:15802").path("products");
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		int status = response.getStatus();
@@ -72,7 +72,7 @@ public class ProductManager {
 		ApplicationUser au = (ApplicationUser) session.getAttribute("user");
 		String userEmail = au.getEmail();
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products").queryParam("seller",
+		WebTarget webResource = client.target("http://localhost:15802").path("products").queryParam("seller",
 				userEmail);
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
@@ -86,7 +86,7 @@ public class ProductManager {
 
 	public Product update(Product pr) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products");
+		WebTarget webResource = client.target("http://localhost:15802").path("products");
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.put(Entity.entity(pr, MediaType.APPLICATION_JSON));
 		int status = response.getStatus();
@@ -98,7 +98,7 @@ public class ProductManager {
 
 	public boolean delete(Product pr) {
 		Client client = ClientBuilder.newClient();
-		WebTarget webResource = client.target("https://localhost:15802").path("products")
+		WebTarget webResource = client.target("http://localhost:15802").path("products")
 				.path(((Integer) pr.getIdProduct()).toString());
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.delete();

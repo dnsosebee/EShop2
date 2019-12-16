@@ -32,7 +32,7 @@ public class SignUpRequestHandler implements es.uc3m.eshop.controlservlet.Reques
 			ApplicationUserManager aum = new ApplicationUserManager();
 			aum.insert(au);
 			
-			return "index.jsp";
+			return "index.html";
 		}
 		else {
 			System.out.println("holaaa!!");

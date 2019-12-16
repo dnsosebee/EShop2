@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>demoMySQL</artifactId>
+	<artifactId>EshopBankServices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demoMySQL</name>
-	<description>Demo project for Spring Boot</description>
+	<name>EshopBankServices</name>
+	<description>Banking Microservice</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

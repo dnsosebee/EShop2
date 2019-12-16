@@ -102,7 +102,7 @@
 						</div>
 						<div class="form-group">
 							<input class="input" type="text" name="cardExpiry"
-								placeholder="Credit Card Expiry">
+								placeholder="Credit Card Expiry mm/yy">
 						</div>
 						<div class="form-group">
 							<input class="input" type="text" name="cardSecurity"

@@ -26,33 +26,35 @@ import es.uc3m.tiw.domains.ApplicationUserDAO;
 @EntityScan("es.uc3m.eshop.model")
 @ComponentScan("es.uc3m.eshop.model")
 public class EshopBankServicesController {
+	
+	//Returns a status 200 random int if the card details are correct
+	//402 if card is not validated
 
-	
-	@RequestMapping("/hello")
-	public @ResponseBody String helloWorld()
-	{
-		return "Hello World";
-	}
-	
-	
-	//1. receive the information about the card, and the total price of the purchase
-
-	
 	@RequestMapping(value = "bank", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<?> verifyPurchase(@RequestBody ) {
+	public @ResponseBody ResponseEntity<?> verifyPurchase(@RequestBody BankVerification verification) {
 		
-		
-	}
-	
-	
-	//2/validate the card number. For the card to be valid its number should have 16 numbers
-//	and it should be divisible by 4, the CV2 number should have 3 digits and the date
-//	should be later to the current one. 
-	
-//	3. If the card is valid the service will return a “transaction code” that identifies the
-//			purchase, and a HTTP code 2000 to confirm that everything has been ok. If the card is
-//			not valid it should return the error HTTP code 402.
+		String numberValidationRegex = "^[0-9]{16}$";
+		String cardExpiryRegex = "[0-1]{1}[0-9]{1}\\/[0-9]{2}";
+		String cardSecurityRegex = "[0-9]{3}";
 
+
+		if (	Integer.parseInt(verification.getCardNumber())%4 == 0 &&
+				verification.getCardNumber().matches(numberValidationRegex) && 
+				verification.getCardExpiry().matches(cardExpiryRegex) && 
+				verification.getCardSecurity().matches(cardSecurityRegex)				)
+		{
+			
+			int randomNumber = (int) (Math.random() * 1000000);
+			
+			System.out.println(randomNumber);
+			
+			return new ResponseEntity<Integer>(randomNumber, HttpStatus.OK);
+		}
+		
+		
+		
+		return new ResponseEntity<>(HttpStatus.PAYMENT_REQUIRED);
+	}
 	
 	
 	

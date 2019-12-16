@@ -1,13 +1,7 @@
 package es.uc3m.eshop.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -19,30 +13,16 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.client.ClientConfig;
 
-
-
-
 public class ApplicationUserManager {
-	
-//	private EntityManager em;
-//	private EntityTransaction et;
-	
+
 	//Connecting to EshopUserServices
 	ClientConfig config = new ClientConfig();
 	Client client = ClientBuilder.newClient(config);
 	
-	public ApplicationUserManager() {
-		
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("EShop");
-//		em = emf.createEntityManager();
-//		et = em.getTransaction();
-	}
+	public ApplicationUserManager() {}
 	
 	public ApplicationUser findByEmail(String email) {
-		
-//		ApplicationUser au = em.find(ApplicationUser.class, email);
-//		return au;
-//		\
+
 		System.out.println("FINDING BY EMAIL");
 
 		WebTarget webResource = client.target("http://localhost:15812/users/" + email);
@@ -55,7 +35,6 @@ public class ApplicationUserManager {
 
 		ApplicationUser au = response.readEntity(ApplicationUser.class);
 
-		
 		return au;
 		
 	}
@@ -72,22 +51,12 @@ public class ApplicationUserManager {
 		
 		Response response = invocationBuilder.post(Entity.entity(au, MediaType.APPLICATION_JSON));	
 		
-		
 		int status = response.getStatus();
 		
 		System.out.println("Response Status: " + status);
-
 		
 		return au;
 		
-//		
-//		et.begin();
-//		
-//		em.persist(au);
-//		
-//		et.commit();
-//		
-//		return au;
 	}
 	
 	
@@ -112,28 +81,11 @@ public class ApplicationUserManager {
 			au = null;
 		}
 	
-		
-//		Query query = em.createNamedQuery("ApplicationUser.login");
-//		query.setParameter("email", email);
-//		query.setParameter("password", password);
-//		ApplicationUser au;
-//		try {
-//			au = (ApplicationUser) query.getSingleResult();
-//		} catch (javax.persistence.NoResultException e) {
-//			au = null;
-//		}
-		
-		
 		return au;
 	}
 	
 	public List<ApplicationUser> findAll() {
-		
-//		Query query = em.createNamedQuery("ApplicationUser.findAll");
-//		@SuppressWarnings("unchecked")
-	
-//		List<ApplicationUser> resultList = (List<ApplicationUser>)query.getResultList();
-		
+
 		System.out.println("FINDING ALL USERS");
 		
 		WebTarget webResource = client.target("http://localhost:15812/users");	
@@ -141,8 +93,6 @@ public class ApplicationUserManager {
 		Response response = invocationBuilder.get();	
 		int status = response.getStatus();
 		System.out.println("Response Status: " + status);
-		
-		
 		
 		List<ApplicationUser> resultList = response.readEntity(new GenericType<List<ApplicationUser>>() {});
 		
@@ -152,25 +102,12 @@ public class ApplicationUserManager {
 	}
 	
 	public ApplicationUser update(ApplicationUser au) {
-//		et.begin();
-//		
-//		 ApplicationUser user = findByEmail(au.getEmail());
-//		 if (au.getPassword() != null) {
-//			 user.setPassword(au.getPassword());
-//		 }
-//		 user.setAddress(au.getAddress());
-//		 user.setName(au.getName());
-//		 user.setSurname(au.getSurname());
-//		 
-//		 em.merge(user);
-//		et.commit();
 		
 		WebTarget webResource = client.target("http://localhost:15812/users/");	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.put(Entity.entity(au, MediaType.APPLICATION_JSON));
 		int status = response.getStatus();
-		System.out.println("Response Status: " + status);
-			
+		System.out.println("Response Status: " + status);	
 		
 		return au;
 	}
@@ -178,22 +115,16 @@ public class ApplicationUserManager {
 	
 	public List<Product> getUserWishlist(ApplicationUser au)
 	{
-		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail() + "/wishlist");	
+		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail() + "/wishlist_products");	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		int status = response.getStatus();
 		System.out.println("Response Status: " + status);
 		
-		
-		
 		List<Product> wishlist = response.readEntity(new GenericType<List<Product>>() {});
 		
-
 		return wishlist;
-		
-		
 	}
-	
 	
 	//NOT WORKING
 	public boolean delete(ApplicationUser au) {
@@ -201,16 +132,7 @@ public class ApplicationUserManager {
 		System.out.println("DELETE IN AUM");
 		
 		System.out.println("au email: " + au.getEmail());
-		
-//		ApplicationUser user = em.find(ApplicationUser.class, au.getEmail());
-//		if (user == null) {
-//			return false;
-//		}
-//		et.begin();
-//		em.remove(user);
-//		et.commit();
-//		return true;
-		
+
 		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail());	
 		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.delete();
@@ -223,45 +145,35 @@ public class ApplicationUserManager {
 		return false;
 	}
 	
-	public void addToWishlist(ApplicationUser au, int id) {
-
+	public boolean addToWishlist(ApplicationUser au, Integer id) {
 		
-//		ApplicationUser user = findByEmail(au.getEmail());
-//		Product p = em.find(Product.class, id);
-//		List<Product> products = user.getProducts();
-//		if (!products.contains(p)) {
-//			et.begin();
-//			user.getProducts().add(p);
-//			em.merge(user);
-//			et.commit();
-//			System.out.println("should work");
-//		}
-		
-		/*ApplicationUser user = findByEmail(au.getEmail());
-		
-		
-		Product p = em.find(Product.class, id);
-		List<Product> products = user.getProducts();
-		if (!products.contains(p)) {
-			et.begin();
-			user.getProducts().add(p);
-			em.merge(user);
-			et.commit();
-			System.out.println("should work");
-		}*/
+		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail() + "/wishlist_products");	
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		ProductManager pm = new ProductManager();
+		Product p = pm.findById(id.toString());
+		Response response = invocationBuilder.post(Entity.entity(p, MediaType.APPLICATION_JSON));
+		int status = response.getStatus();
+		System.out.println("Response Status: " + status);
+		if(status == 200)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	
-//	public void removeFromWishlist(ApplicationUser au, int id) {
-//
-//		et.begin();
-//		ApplicationUser user = findByEmail(au.getEmail());
-//		Product p = em.find(Product.class, id);
-//		user.getProducts().remove(p);
-//		em.merge(user);
-//		
-//		et.commit();
-//	}
-	
+	public boolean removeFromWishlist(ApplicationUser au, Integer id) {
+		
+		WebTarget webResource = client.target("http://localhost:15812/users/" + au.getEmail() + "/wishlist_products/" + id.toString());	
+		Invocation.Builder invocationBuilder = webResource.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.delete();
+		int status = response.getStatus();
+		System.out.println("Response Status: " + status);
+		if(status == 200)
+		{
+			return true;
+		}
+		return false;
+	}
 	
 }

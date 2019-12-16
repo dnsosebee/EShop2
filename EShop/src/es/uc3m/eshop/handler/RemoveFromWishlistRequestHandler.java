@@ -23,8 +23,7 @@ public class RemoveFromWishlistRequestHandler implements es.uc3m.eshop.controlse
 	// FIX!!!!	
 		ApplicationUser au = (ApplicationUser)session.getAttribute("user");
 		ApplicationUserManager aum = new ApplicationUserManager();
-	//	aum.removeFromWishlist(au, Integer.parseInt(request.getParameter("id")));
+		aum.removeFromWishlist(au, Integer.parseInt(request.getParameter("id")));
 		return "wishlist.html";
 	}
-
 }
